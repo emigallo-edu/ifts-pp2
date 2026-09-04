@@ -17,23 +17,37 @@ Durante el cuatrimestre cada equipo lleva adelante **un proyecto de desarrollo d
 
 ## La dinámica de cada clase
 
-Cada clase tiene dos partes: **la revisión de lo entregado** y **el bloque de teoría**.
+La clase dura cuatro horas y tiene tres bloques: **teoría**, **revisión de entregas** y **cierre de sprint en equipo**.
 
-### Primera parte — Revisión de entregas
+| | | |
+|---|---|---|
+| **2 horas** | Teoría | El tema que el proyecto necesita en ese momento |
+| **1 hora** | Revisión de entregas | Todos los equipos, cinco minutos cada uno |
+| **1 hora (*)** | Cierre de sprint en equipo | Minuta, accionables y planificación del sprint siguiente |
 
-Cada equipo tiene **10 minutos** para exponer sus avances. La revisión sigue siempre el mismo orden:
+(*) Esta hora es asincrónica, el equipo se puede quedar planificando la siguiente iteración o pueden organizar para juntarse en otro momento.
 
-1. **Se revisan los entregables comprometidos** para esa entrega.
-2. **Un integrante del equipo hace la demo** del producto en ejecución. El rol rota sprint a sprint.
-3. **Otro integrante toma la minuta** de la reunión.
-4. **Se registran los accionables** para la entrega siguiente.
-5. **El resto del curso comenta y observa** lo presentado.
+El orden es ese y no es arbitrario. La teoría abre porque es el bloque que tolera que la clase arranque con gente llegando; la revisión no lo tolera, porque cada equipo tiene turno asignado al minuto. Y el cierre en equipo va último porque lo que se planifica ahí tiene que incorporar la devolución que se acaba de recibir.
 
-Dos reglas sobre la demo: **se demuestra el producto funcionando, no diapositivas**, y un incremento que no corre se registra como no entregado y el equipo replanifica. La devolución es frente al curso, para todos igual.
+### Teoría
 
-### Segunda parte — Teoría
+El contenido conceptual **no va por delante de la práctica: entra cuando el proyecto lo necesita**. Cada bloque combina el repaso de temas que ya se vieron en otras materias con los temas nuevos que el momento del proyecto exige. Las dos horas incluyen el corte del medio.
 
-El contenido conceptual **no va por delante de la práctica: entra cuando el proyecto lo necesita**. Cada bloque combina el repaso de temas que ya se vieron en otras materias con los temas nuevos que el momento del proyecto exige.
+**Parte de la teoría sale del código de la propia cursada.** Durante la semana el docente mira los repositorios y los tableros, y lo que le llama la atención lo lleva a la clase para discutirlo entre todos: un principio de diseño mal resuelto, una historia que en realidad eran tres, un criterio de aceptación que no se puede verificar, una consulta que no escala.
+
+### Revisión de entregas
+
+Cada equipo tiene **cinco minutos**, con turno asignado y publicado antes de la clase. En esos cinco minutos entran tres cosas:
+
+1. **La demo del producto en ejecución**, a cargo de un integrante. El rol rota sprint a sprint.
+2. **Los desafíos del sprint**: qué costó, qué no entró y por qué.
+3. **La devolución del cliente**, que acepta o rechaza lo entregado.
+
+Cuatro reglas, porque con diez equipos en una hora no hay margen: **se demuestra el producto funcionando, no diapositivas**; **la demo llega cargada y corriendo** antes de que termine el equipo anterior, y el tiempo de armar la pantalla sale del turno propio; **un incremento que no corre se registra como no entregado** y el equipo replanifica; y **quien no cargó la entrega el jueves no ocupa turno**. La devolución es frente al curso, para todos igual, y el resto del curso escucha las diez revisiones: al trabajar todos sobre el mismo dominio, el problema de un equipo suele ser el de otro.
+
+### Cierre de sprint en equipo
+
+La última hora es del equipo, sin el docente. No es tiempo libre: es el cierre del sprint, y se cierra por escrito. Antes de terminar la clase tienen que quedar en Trello **la minuta de la revisión**, **los accionables** que dejó la devolución y **el sprint siguiente comprometido**, con las tareas repartidas. Ese registro es lo que se revisa al final del bloque y lo que da por cumplida la clase.
 
 ## Roles
 
