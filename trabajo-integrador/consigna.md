@@ -8,7 +8,7 @@ El programa original tiene 16 clases y 12 sprints. Con tres entregas menos, este
 
 | Clase | Se revisa | En clase |
 |---|---|---|
-| 1 | — | Encuadre. Sistemas de información y tipos. **Entrega de la propuesta de trabajo.** Armado de equipos. **Taller: la primera historia de usuario, entre todos** |
+| 1 | — | Encuadre. Sistemas de información y tipos. **Entrega de la propuesta de trabajo.** Armado de equipos. **Taller: [la primera historia de usuario, entre todos](historia-de-referencia.md)** |
 | 2 | Propuesta de problemática y tres historias en borrador | Técnicas de relevamiento. **Entrevista con el cliente.** Scrum y herramientas |
 | 3 | Requisitos relevados | Del relevamiento al backlog. Definición de Terminado. Stack |
 | 4 | Sprint 1 | Puesta a punto técnica. Arquitectura y modelo de datos. Atributos de calidad |
@@ -122,6 +122,6 @@ El hito real es el **sprint 2**: a partir de ahí hay algo que mostrarle al clie
 | La acotación: un solo usuario | Quiénes son los actores y las partes interesadas |
 | Las cinco specs y **los nombres de las once historias** | El "para" de cada una: qué decisión habilita |
 | El esqueleto mínimo: qué debe correr en la clase 8 | Los criterios de aceptación de cada historia |
-| Una historia de referencia, resuelta entre todos en la clase 1 | La división de las que no entran en un sprint |
+| [Una historia de referencia](historia-de-referencia.md), resuelta entre todos en la clase 1 | La división de las que no entran en un sprint |
 | El formato de los criterios de aceptación | La estimación y el orden del resto del backlog |
 | El cambio de requerimiento de la clase 9 | Los requerimientos no funcionales y los umbrales |

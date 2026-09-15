@@ -17,23 +17,15 @@ Durante el cuatrimestre cada equipo lleva adelante **un proyecto de desarrollo d
 
 ## La dinámica de cada clase
 
-La clase dura cuatro horas y tiene tres bloques: **teoría**, **revisión de entregas** y **cierre de sprint en equipo**.
+La clase dura cuatro horas y tiene tres bloques: **revisión de entregas**, **teoría** y **cierre de sprint en equipo**.
 
 | | | |
 |---|---|---|
+| **1 hora** | Revisión de entregas | Los diez equipos, cinco minutos cada uno |
 | **2 horas** | Teoría | El tema que el proyecto necesita en ese momento |
-| **1 hora** | Revisión de entregas | Todos los equipos, cinco minutos cada uno |
-| **1 hora (*)** | Cierre de sprint en equipo | Minuta, accionables y planificación del sprint siguiente |
+| **1 hora** | Cierre de sprint en equipo | Minuta, accionables y planificación del sprint siguiente |
 
-(*) Esta hora es asincrónica, el equipo se puede quedar planificando la siguiente iteración o pueden organizar para juntarse en otro momento.
-
-El orden es ese y no es arbitrario. La teoría abre porque es el bloque que tolera que la clase arranque con gente llegando; la revisión no lo tolera, porque cada equipo tiene turno asignado al minuto. Y el cierre en equipo va último porque lo que se planifica ahí tiene que incorporar la devolución que se acaba de recibir.
-
-### Teoría
-
-El contenido conceptual **no va por delante de la práctica: entra cuando el proyecto lo necesita**. Cada bloque combina el repaso de temas que ya se vieron en otras materias con los temas nuevos que el momento del proyecto exige. Las dos horas incluyen el corte del medio.
-
-**Parte de la teoría sale del código de la propia cursada.** Durante la semana el docente mira los repositorios y los tableros, y lo que le llama la atención lo lleva a la clase para discutirlo entre todos: un principio de diseño mal resuelto, una historia que en realidad eran tres, un criterio de aceptación que no se puede verificar, una consulta que no escala.
+El orden es ese y no es arbitrario. La revisión abre porque es lo que fija el estado del proyecto, y porque el costo de llegar tarde tiene que ser el más bajo posible: quien llega tarde se pierde la demo de un equipo y quedan otras nueve, mientras que perderse la teoría no se recupera. Va antes que la teoría, además, porque los errores que aparecen en las demos entran calientes al bloque conceptual. Y el cierre en equipo va último porque lo que se planifica ahí tiene que incorporar la devolución que se acaba de recibir.
 
 ### Revisión de entregas
 
@@ -43,7 +35,15 @@ Cada equipo tiene **cinco minutos**, con turno asignado y publicado antes de la 
 2. **Los desafíos del sprint**: qué costó, qué no entró y por qué.
 3. **La devolución del cliente**, que acepta o rechaza lo entregado.
 
-Cuatro reglas, porque con diez equipos en una hora no hay margen: **se demuestra el producto funcionando, no diapositivas**; **la demo llega cargada y corriendo** antes de que termine el equipo anterior, y el tiempo de armar la pantalla sale del turno propio; **un incremento que no corre se registra como no entregado** y el equipo replanifica; y **quien no cargó la entrega el jueves no ocupa turno**. La devolución es frente al curso, para todos igual, y el resto del curso escucha las diez revisiones: al trabajar todos sobre el mismo dominio, el problema de un equipo suele ser el de otro.
+Cuatro reglas, porque con diez equipos en una hora no hay margen: **se demuestra el producto funcionando, no diapositivas**; **la demo llega cargada y corriendo** antes de que termine el equipo anterior, y el tiempo de armar la pantalla sale del turno propio; **un incremento que no corre se registra como no entregado** y el equipo replanifica; y **quien no cargó la entrega el jueves no ocupa turno**. Si al llegar su turno el equipo no tiene a quien presenta, pasa al final de la ronda; si tampoco está entonces, el sprint se registra como no entregado. **El orden de los turnos rota clase a clase**, para que no le toque siempre a los mismos abrir con el aula a medio llenar.
+
+La devolución es frente al curso, para todos igual, y el resto del curso escucha las diez revisiones: al trabajar todos sobre el mismo dominio, el problema de un equipo suele ser el de otro.
+
+### Teoría
+
+El contenido conceptual **no va por delante de la práctica: entra cuando el proyecto lo necesita**. Cada bloque combina el repaso de temas que ya se vieron en otras materias con los temas nuevos que el momento del proyecto exige. Las dos horas incluyen el corte del medio.
+
+**Parte de la teoría sale del código de la propia cursada.** Lo que aparece en las demos de esa misma clase, y lo que el docente encuentra durante la semana mirando los repositorios y los tableros, se lleva al bloque conceptual para discutirlo entre todos: un principio de diseño mal resuelto, una historia que en realidad eran tres, un criterio de aceptación que no se puede verificar, una consulta que no escala. El caso se presenta sin decir de qué equipo salió, porque lo que se discute es el problema y no quién lo escribió, y porque trabajando todos sobre el mismo dominio el error de uno es el error probable de los otros nueve. Cuando un caso así aparece, tiene prioridad sobre el tema que estaba previsto: para eso existe la regla de que la teoría entra cuando el proyecto la necesita.
 
 ### Cierre de sprint en equipo
 
