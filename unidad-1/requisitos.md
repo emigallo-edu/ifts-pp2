@@ -268,7 +268,9 @@ La cadena Épica > Feature > Historia se difundió por dos vías: **SAFe**, que 
 La Guía Scrum, en cambio, sólo tiene **elemento del Product Backlog**. No define épicas, ni features, ni historias de usuario: todo eso viene de XP y de la literatura posterior.
 
 
-> **Fuente.** Schwaber, K. y Sutherland, J. (2020). *La Guía Scrum*, sección "Product Backlog". https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Spanish-European.pdf
+>La Guía Scrum define únicamente el elemento del Product Backlog. No define épicas, ni features, ni historias de usuario.
+>
+>[La Guía Scrum - Schwaber y Sutherland (2020), sección "Product Backlog"](https://scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-Spanish-European.pdf)
 
 ### Cómo se ordenan
 
@@ -300,7 +302,7 @@ Robert C. Martin (Tio Bob) lo formula como **arquitectura que grita**: la estruc
 
 Eric Evans llega a lo mismo desde el otro lado: los módulos siguen el lenguaje ubicuo, o sea el vocabulario del cliente. Si el tutor habla de "intervenciones", hay un módulo de intervenciones.
 
-#### En el dominio
+#### Aplicación al proyecto guía
 
 Los seis módulos razonables del sistema de seguimiento son conceptos del dominio, no ítems del backlog: cursada y comisiones, registro de asistencia y entregas, cálculo de indicadores, panel de seguimiento, alertas y umbrales, registro de intervenciones. Coinciden con las seis specs porque las specs se escribieron sobre el dominio, no al revés.
 
