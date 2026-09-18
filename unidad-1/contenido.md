@@ -595,6 +595,8 @@ Cuando el lenguaje del código y el del cliente divergen, cada conversación req
 
 Glosario mínimo del dominio, a construir durante la entrevista: desenganche, riesgo, intervención, comisión, entrega, umbral, seguimiento.
 
+Ese glosario es la materia prima del **modelo de dominio**, que muestra cómo se relacionan entre sí los términos que el glosario define y se valida con el cliente junto con él. El tema se desarrolla en [unidad-2/contenido.md](../unidad-2/contenido.md), primer tema de la unidad.
+
 ### Aplicación al proyecto guía
 
 Las cuatro técnicas aplicadas al dominio, con su rendimiento esperado:

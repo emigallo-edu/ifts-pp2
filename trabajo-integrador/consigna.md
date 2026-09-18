@@ -2,28 +2,6 @@
 
 Documento de cátedra. Define el dominio sobre el que trabajan todos los equipos, su alcance, cómo se reparte en los sprints disponibles y qué hace el docente en su rol de cliente.
 
-## Supuesto de calendario
-
-El programa original tiene 16 clases y 12 sprints. Con tres entregas menos, este documento asume **13 clases y 9 sprints**:
-
-| Clase | Se revisa | En clase |
-|---|---|---|
-| 1 | — | Encuadre. Sistemas de información y tipos. **Entrega de la propuesta de trabajo.** Armado de equipos. **Taller: [la primera historia de usuario, entre todos](historia-de-referencia.md)** |
-| 2 | Propuesta de problemática y tres historias en borrador | Técnicas de relevamiento. **Entrevista con el cliente.** Scrum y herramientas |
-| 3 | Requisitos relevados | Del relevamiento al backlog. Definición de Terminado. Stack |
-| 4 | Sprint 1 | Puesta a punto técnica. Arquitectura y modelo de datos. Atributos de calidad |
-| 5 | Sprint 2 | Diseño de interfaz. Primera medición de velocidad |
-| 6 | Sprint 3 | Del dato a la decisión. Indicadores. Consultas de agregación. Calidad de código |
-| 7 | Sprint 4 | Visualización y tableros. Umbrales. Deuda técnica |
-| 8 | **Sprint 5 — producto en ejecución** | **PRIMERA EVALUACIÓN.** Demo y devolución cruzada |
-| 9 | Sprint 6 | Pruebas e integración continua. *Al cierre: el cliente cambia el requerimiento* |
-| 10 | Sprint 7 | Despliegue, ambientes y seguridad. Gestión del cambio |
-| 11 | Sprint 8 | Operación y mantenimiento. Documentación. Ensayo de la demo |
-| 12 | **Sprint 9 — entrega final** | **SEGUNDA EVALUACIÓN.** Demo y defensa individual |
-| 13 | — | Cierre. Roles en la industria, entrevista técnica, portfolio |
-
----
-
 ## El dominio
 
 > **Seguimiento de cursada y alerta temprana.** Un panel para que quien sigue una comisión sepa a qué estudiantes contactar esta semana, antes de que abandonen.

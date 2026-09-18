@@ -9,44 +9,54 @@
     - [Finalidad: ¿Para qué?](#finalidad-para-qué)
     - [Fundamentos: ¿Por qué?](#fundamentos-por-qué)
     - [Mecanismos: ¿Cómo?](#mecanismos-cómo)
-    - [Material](#material)
-    - [Conocimiento necesario](#conocimiento-necesario)
-- [Análisis de alternativas de solución](#análisis-de-alternativas-de-solución)
-    - [El problema que resuelve](#el-problema-que-resuelve)
-    - [El espacio de decisión](#el-espacio-de-decisión)
-    - [El último momento responsable](#el-último-momento-responsable)
-    - [Comparación de alternativas](#comparación-de-alternativas)
-    - [El registro de la decisión](#el-registro-de-la-decisión)
+- [Modelo de dominio](#modelo-de-dominio)
+    - [El primer modelo del Proceso Unificado](#el-primer-modelo-del-proceso-unificado)
+    - [Qué no es un modelo de dominio](#qué-no-es-un-modelo-de-dominio)
+    - [Las tres construcciones](#las-tres-construcciones)
+    - [Cómo se obtiene](#cómo-se-obtiene)
+    - [El modelo como acuerdo](#el-modelo-como-acuerdo)
+    - [Un ejemplo resuelto: la biblioteca](#un-ejemplo-resuelto-la-biblioteca)
+    - [Un modelo por iteración](#un-modelo-por-iteración)
     - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía)
     - [Anti-patrones frecuentes](#anti-patrones-frecuentes)
     - [Síntesis](#síntesis)
+    - [Fuentes](#fuentes)
+- [Análisis de alternativas de solución](#análisis-de-alternativas-de-solución)
+    - [El problema que resuelve](#el-problema-que-resuelve)
+    - [El registro de la decisión](#el-registro-de-la-decisión)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-1)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-1)
+    - [Síntesis](#síntesis-1)
 - [Criterios de evaluación y selección: la factibilidad](#criterios-de-evaluación-y-selección-la-factibilidad)
     - [Naturaleza del estudio de factibilidad](#naturaleza-del-estudio-de-factibilidad)
     - [Factibilidad técnica](#factibilidad-técnica)
     - [Factibilidad operativa](#factibilidad-operativa)
     - [Factibilidad económica](#factibilidad-económica)
     - [Factibilidad temporal](#factibilidad-temporal)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-1)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-1)
-    - [Síntesis](#síntesis-1)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-2)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-2)
+    - [Síntesis](#síntesis-2)
+    - [Fuentes](#fuentes-1)
 - [Modelado funcional: casos de uso y diagramas de secuencia](#modelado-funcional-casos-de-uso-y-diagramas-de-secuencia)
     - [El modo de uso determina el detalle](#el-modo-de-uso-determina-el-detalle)
     - [El caso de uso como descripción de comportamiento](#el-caso-de-uso-como-descripción-de-comportamiento)
     - [Diagrama de secuencia del sistema](#diagrama-de-secuencia-del-sistema)
     - [Diagrama de secuencia de diseño](#diagrama-de-secuencia-de-diseño)
     - [Contratos de operación](#contratos-de-operación)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-2)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-2)
-    - [Síntesis](#síntesis-2)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-3)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-3)
+    - [Síntesis](#síntesis-3)
+    - [Fuentes](#fuentes-2)
 - [Modelado de datos: entidad-relación y modelo relacional](#modelado-de-datos-entidad-relación-y-modelo-relacional)
     - [Modelo de dominio y modelo de datos](#modelo-de-dominio-y-modelo-de-datos)
     - [El modelo entidad-relación](#el-modelo-entidad-relación)
     - [Derivación al modelo relacional](#derivación-al-modelo-relacional)
     - [Normalización](#normalización)
     - [El dato que cambia con el tiempo](#el-dato-que-cambia-con-el-tiempo)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-3)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-3)
-    - [Síntesis](#síntesis-3)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-4)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-4)
+    - [Síntesis](#síntesis-4)
+    - [Fuentes](#fuentes-3)
 - [Diseño de procesos, componentes e interfaces](#diseño-de-procesos-componentes-e-interfaces)
     - [El criterio de descomposición](#el-criterio-de-descomposición)
     - [Cohesión y acoplamiento](#cohesión-y-acoplamiento)
@@ -54,9 +64,10 @@
     - [Asignación de responsabilidades](#asignación-de-responsabilidades)
     - [Cohesión y acoplamiento de componentes](#cohesión-y-acoplamiento-de-componentes)
     - [Diseño de procesos](#diseño-de-procesos)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-4)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-4)
-    - [Síntesis](#síntesis-4)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-5)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-5)
+    - [Síntesis](#síntesis-5)
+    - [Fuentes](#fuentes-4)
 - [Arquitectura de la solución](#arquitectura-de-la-solución)
     - [Qué es la arquitectura de un software](#qué-es-la-arquitectura-de-un-software)
     - [Organización en capas](#organización-en-capas)
@@ -64,18 +75,20 @@
     - [Servicios e integraciones](#servicios-e-integraciones)
     - [Puertos y adaptadores](#puertos-y-adaptadores)
     - [La arquitectura y la estructura del equipo](#la-arquitectura-y-la-estructura-del-equipo)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-5)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-5)
-    - [Síntesis](#síntesis-5)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-6)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-6)
+    - [Síntesis](#síntesis-6)
+    - [Fuentes](#fuentes-5)
 - [Atributos de calidad y sus tensiones](#atributos-de-calidad-y-sus-tensiones)
     - [Del adjetivo al escenario](#del-adjetivo-al-escenario)
     - [Los atributos en juego](#los-atributos-en-juego)
     - [Las tensiones](#las-tensiones)
     - [Evaluación de la arquitectura](#evaluación-de-la-arquitectura)
     - [Calidad interna y costo de cambio](#calidad-interna-y-costo-de-cambio)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-6)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-6)
-    - [Síntesis](#síntesis-6)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-7)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-7)
+    - [Síntesis](#síntesis-7)
+    - [Fuentes](#fuentes-6)
 - [Prototipado y diseño de interfaces](#prototipado-y-diseño-de-interfaces)
     - [El prototipo como experimento](#el-prototipo-como-experimento)
     - [Baja fidelidad](#baja-fidelidad)
@@ -84,18 +97,20 @@
     - [Heurísticas de usabilidad](#heurísticas-de-usabilidad)
     - [Accesibilidad](#accesibilidad)
     - [Consistencia visual e identidad de producto](#consistencia-visual-e-identidad-de-producto)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-7)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-7)
-    - [Síntesis](#síntesis-7)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-8)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-8)
+    - [Síntesis](#síntesis-8)
+    - [Fuentes](#fuentes-7)
 - [Definición de tecnologías y herramientas de desarrollo](#definición-de-tecnologías-y-herramientas-de-desarrollo)
     - [La pregunta correcta](#la-pregunta-correcta)
     - [Fichas de innovación](#fichas-de-innovación)
     - [Criterios de selección](#criterios-de-selección)
     - [El esqueleto ambulante](#el-esqueleto-ambulante)
     - [Las herramientas que no son el lenguaje](#las-herramientas-que-no-son-el-lenguaje)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-8)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-8)
-    - [Síntesis](#síntesis-8)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-9)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-9)
+    - [Síntesis](#síntesis-9)
+    - [Fuentes](#fuentes-8)
 - [Los hilos que atraviesan la unidad](#los-hilos-que-atraviesan-la-unidad)
 
 <!-- /TOC -->
@@ -104,17 +119,12 @@
 
 ### Finalidad: ¿Para qué?
 
+- fijar el vocabulario del problema en un modelo que el cliente pueda leer y corregir;
 - elegir una solución entre varias, en lugar de aceptar la primera;
 - fundamentar esa elección con criterios explícitos y verificables;
 - traducir el problema relevado a modelos que permitan construirlo;
 - organizar el sistema de modo que el costo del cambio se mantenga bajo;
 - y dejar registro de las decisiones tomadas, para poder defenderlas y para poder revisarlas.
-
-La unidad anterior terminó con un problema comprendido, un conjunto de requerimientos analizados y un backlog priorizado. Nada de eso indica todavía qué se va a construir ni cómo. El propósito de esta unidad es cubrir esa distancia: convertir un problema comprendido en una solución diseñada, entendiendo por diseño no el dibujo de pantallas sino el conjunto de decisiones estructurales que determinan qué se puede cambiar después y a qué costo.
-
-La distinción entre problema y solución es la que ordena todo el recorrido. El problema pertenece al dominio del cliente y no admite variantes: existe con independencia de que se construya software o no. La solución, en cambio, es una construcción del equipo, y por lo tanto admite alternativas, se evalúa, se descarta y se justifica. Confundir ambos planos tiene una consecuencia concreta y observable: toda crítica a la solución se vive como una crítica al problema, y el equipo la defiende en lugar de evaluarla.
-
-El diseño, entendido de este modo, no es una etapa que antecede a la construcción y luego se abandona. Es una actividad que se ejerce en cada incremento, y cuyo resultado se mide por una propiedad muy concreta: cuánto cuesta introducir el próximo cambio.
 
 ### Fundamentos: ¿Por qué?
 
@@ -126,14 +136,11 @@ El diseño, entendido de este modo, no es una etapa que antecede a la construcci
 
 El concepto de **costo del cambio** adquiere centralidad. Toda decisión de diseño puede evaluarse por su efecto sobre él: una estructura que concentra en un único lugar aquello que se espera que cambie reduce el costo de los cambios futuros; una que lo dispersa lo multiplica. La dificultad es que ese costo no se manifiesta en el momento en que la decisión se toma, sino varios incrementos después, cuando corregirla ya implica reescribir.
 
-De ahí se sigue el criterio que atraviesa la unidad entera: **el trabajo del diseño no consiste en anticipar lo que el sistema va a necesitar, sino en identificar qué es probable que cambie y aislarlo**. La anticipación exhaustiva es imposible y además cara; la identificación de los puntos de variación probable es factible y barata, porque el relevamiento ya proveyó la información necesaria para hacerla.
-
-La segunda noción que organiza la unidad es la de **compromiso**. No existen decisiones de arquitectura sin contrapartida: la flexibilidad se paga con complejidad, el rendimiento con mantenibilidad, la seguridad con usabilidad. Un diseño que parece no tener contrapartidas es, casi siempre, un diseño cuyas contrapartidas todavía no se identificaron.
-
 ### Mecanismos: ¿Cómo?
 
 El diseño de una solución no se realiza mediante una técnica única ni produce un artefacto único. Se realiza a través de un conjunto articulado de análisis, modelos y decisiones registradas, cuya finalidad es reducir la incertidumbre antes de comprometer construcción:
 
+- construcción del modelo de dominio: los conceptos del problema, sus relaciones y su vocabulario;
 - análisis comparado de alternativas de solución;
 - estudio de factibilidad técnica, operativa, económica y temporal;
 - modelado del comportamiento mediante casos de uso y diagramas de secuencia;
@@ -145,28 +152,83 @@ El diseño de una solución no se realiza mediante una técnica única ni produc
 - selección fundamentada del conjunto de tecnologías y herramientas;
 - y registro de las decisiones adoptadas mediante ADR.
 
-### Material
+--------
 
-- [Clean Architecture](https://www.pearson.com/en-us/subject-catalog/p/clean-architecture-a-craftsmans-guide-to-software-structure-and-design/P200000009528) — Robert C. Martin
-- [Modern Software Engineering](https://www.davefarley.net/?p=352) — David Farley — 📄 PDF en `Docs/` del repositorio
-- [Object-Oriented Software Construction](https://bertrandmeyer.com/OOSC2/) — Bertrand Meyer
-- [Applying UML and Patterns](https://www.craiglarman.com/wiki/index.php?title=Book_Applying_UML_and_Patterns) — Craig Larman
-- [Software Architecture in Practice](https://www.oreilly.com/library/view/software-architecture-in/9780132942799/) — Bass, Clements y Kazman
-- [On the Criteria To Be Used in Decomposing Systems into Modules](https://doi.org/10.1145/361598.361623) — David Parnas
-- [The Entity-Relationship Model](https://doi.org/10.1145/320434.320440) — Peter Chen
-- [A Relational Model of Data for Large Shared Data Banks](https://doi.org/10.1145/362384.362685) — Edgar Codd
-- [Documenting Architecture Decisions](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions.html) — Michael Nygard
-- [10 Usability Heuristics for User Interface Design](https://www.nngroup.com/articles/ten-usability-heuristics/) — Jakob Nielsen
+# Modelo de dominio
 
-### Conocimiento necesario
+El modelado de dominio es una actividad de análisis que busca comprender y representar el mundo del problema para el cual se construirá un sistema de software. Antes de hablar de pantallas, bases de datos, clases de programación o tecnología, necesitamos entender qué conceptos existen en el negocio, cómo se relacionan, qué reglas deben cumplirse y qué vocabulario usan las personas que conocen ese dominio.
 
-- [Unidad 1 — Identificación y análisis de la problemática](../unidad-1/contenido.md), en particular el límite del sistema, los requerimientos no funcionales y los criterios de aceptación.
-- [Casos de uso e historias de usuario](../unidad-1/requisitos.md).
-- Modelado en UML y diagramas de clases, provenientes de Modelado y Diseño de Software y de Desarrollo de Sistemas Orientado a Objetos.
-- Álgebra relacional y SQL, provenientes de Administración de Base de Datos.
-- [El dominio del proyecto guía](../trabajo-integrador/consigna.md).
+Modelar el negocio completo resulta desproporcionado en la mayoría de los proyectos, y prescribe para esos casos una forma reducida: el **modelado del dominio**, que se limita a los conceptos importantes del problema y omite los procesos de la organización.
 
-> **Sobre las citas.** Cada referencia indica capítulo y sección, porque la paginación cambia entre ediciones y entre las versiones en inglés y en castellano. Se indican páginas cuando la fuente es un artículo. Los enlaces fueron verificados el 14-09-2026.
+>Un modelo de dominio captura los tipos de objetos más importantes en el contexto del sistema. Los objetos de dominio representan las cosas que existen o los eventos que ocurren en el entorno en el que el sistema trabaja.
+>
+>The Unified Software Development Process - Jacobson, Booch y Rumbaugh
+
+### Las tres construcciones
+
+El modelo se dibuja como un diagrama de clases de UML restringido a tres elementos.
+
+| Construcción | Qué representa | Regla práctica |
+|---|---|---|
+| **Clase conceptual** | Una idea, cosa u objeto del dominio | Si el cliente la nombra en una conversación, es candidata |
+| **Asociación** | Una relación entre conceptos que debe conservarse | Se nombra con una frase verbal legible y lleva multiplicidad en ambos extremos |
+| **Atributo** | Un dato simple de un concepto | Texto, número, fecha o estado. Nada más |
+
+**Si algo no se piensa como un número o un texto, no es un atributo.** La comisión no es una cadena dentro del estudiante: es un concepto con identidad propia, y por lo tanto se representa como clase y se vincula mediante una asociación. Cuando un atributo se transforma en clase, el modelo gana un lugar donde colgar lo que el cliente todavía no dijo.
+
+**Sólo se incluyen las asociaciones cuyo conocimiento debe preservarse.** Un modelo que dibuja toda relación concebible se vuelve ilegible sin agregar información. El criterio es si el sistema necesita recordar esa relación a lo largo del tiempo.
+
+### El modelo como acuerdo
+
+El modelo de dominio no se construye para documentar: se construye para acordar. Su destinatario inmediato es el cliente, que debe poder leerlo y corregirlo, y por eso se escribe en su vocabulario y no en el del equipo. Es el mismo criterio que ordenó el glosario durante el relevamiento, y es la razón por la que ambos artefactos se validan juntos: el glosario define los términos y el modelo muestra cómo se relacionan.
+
+Se extiende la consecuencia hasta el código. Si las clases del programa llevan los nombres del dominio, cada conversación entre el equipo y el cliente se sostiene sobre los mismos términos y desaparece la traducción intermedia. El costo de esa traducción no se percibe al principio: aparece cuando el cliente rechaza un incremento porque lo construido no es lo que había pedido, y ambas partes tienen razón.
+
+### Un Modelo de Dominio
+
+```text
+   ┌──────────────┐    ┌──────────────┐
+   │   ESTANTE    │    │     OBRA     │◄─────────────────────┐
+   └──────▲───────┘    └──────┬───────┘                      │
+          │                   │ se materializa en            │
+          │            ┌──────┴───────┐               ┌──────┴───────┐
+          └────────────┤    LIBRO     │               │   RESERVA    │
+                       └──────┬───────┘               └──────┬───────┘
+                              │                              │
+   ┌──────────────┐           │                              │
+   │  REGLAMENTO  │           │                              │
+   └──────┬───────┘           │                              │
+          │ rige              ▼                              ▼
+          │            ┌──────────────┐   lo recibe   ┌──────────────┐
+          └───────────►│   PRÉSTAMO   │──────────────►│    SOCIO     │
+                       └──────┬───────┘               └──────▲───────┘
+                              │                              │
+                       ┌──────┴───────┐                      │
+                       │   SANCIÓN    │──────────────────────┘
+                       └──────────────┘   inhabilita a
+```
+
+Un modelo de dominio sirve tanto por lo que afirma como por las preguntas que vuelve visibles:
+- ¿Todos los libros están disponibles para ser prestados?
+- ¿De dónde salen los libros? ¿Los compras, te los donan?
+- ¿Que informes tenes actualmente?
+- Contame un poco en que consiste el reglamento
+
+Algunas preguntas importantes pero no para este momento:
+- ¿Cuános días se prestan los libros?
+- ¿Te comunicas con el socio cuando está retrasado en la devolución?
+
+Fuera del modelo quedaron la editorial de cada obra y el bibliotecario que atiende el mostrador. Existen en la biblioteca, pero ninguna de las historias priorizadas los necesita, y un concepto que no sostiene ninguna historia sólo agrega ruido a la conversación con el cliente. Tampoco están los valores que se calculan: el atraso de un préstamo no es un concepto del dominio, es lo que resulta de mirar el préstamo contra el reglamento.
+
+### Un modelo por iteración
+
+No se completa antes de construir: se arma una primera versión con los conceptos que las historias priorizadas necesitan, y se amplía en cada iteración a medida que el relevamiento avanza y el cliente corrige. Un modelo terminado en la primera semana es un modelo construido sobre supuestos, y su exhaustividad no lo hace más confiable sino más caro de corregir.
+
+El criterio de tamaño es el uso: el modelo sirve mientras se lo puede leer completo y discutir en una reunión. Cuando deja de caber en esa conversación, dejó de cumplir su función de vocabulario compartido y se convirtió en documentación.
+
+### Síntesis
+
+El modelo de dominio es el glosario dibujado: los conceptos del problema, sus relaciones y sus datos simples, **en las palabras del cliente y sin decisiones de software**. Se construye durante el relevamiento, se valida con quien conoce el dominio y se amplía en cada iteración. Su valor no reside en la completitud del diagrama sino en dos efectos: fija el vocabulario con el que se van a escribir las historias, el modelo de datos y el código, y hace visible lo que el dominio todavía no tiene resuelto. Un modelo que no puede leerse en una reunión, o que el cliente nunca leyó, no cumple ninguna de las dos funciones.
 
 --------
 
@@ -179,16 +241,6 @@ Un equipo que dispone de una sola propuesta no realizó una elección: adoptó l
 El análisis comparado cumple además una función que no es evidente. Comparar dos alternativas obliga a explicitar el criterio con el cual se las compara, y ese criterio —no la alternativa seleccionada— es lo que sostiene después las decisiones de arquitectura. Una sola alternativa mantiene el criterio implícito; dos lo vuelven necesario. Por eso el resultado más valioso de este análisis no es la opción ganadora sino la lista de criterios que la hicieron ganar, que es la que permite revisar la decisión cuando el contexto cambie.
 
 Esta dinámica es un caso particular de una propiedad general del diseño de software, que Richards y Ford enuncian como primera ley de la arquitectura.
-
->Todo en arquitectura de software es un compromiso. Si alguien cree haber encontrado algo que no lo es, simplemente todavía no identificó cuál es el compromiso.
->
->Fundamentals of Software Architecture - Mark Richards & Neal Ford
-
-La segunda ley que formulan resulta igualmente pertinente para la evaluación de un proyecto académico, y explica por qué el registro de la decisión importa tanto como la decisión: *el porqué es más importante que el cómo*.
-
-### El espacio de decisión
-
-La expresión "alternativa de solución" no designa productos distintos, sino decisiones distintas sobre cuatro planos, que conviene recorrer en el orden en que se enumeran, porque cada uno condiciona al siguiente.
 
 ##### 1. Construir, adaptar o adquirir
 
@@ -207,22 +259,6 @@ Cómo se organiza lo que se construye. Aplicación con servidor, aplicación de 
 Con qué se construye. Lenguaje, motor de base de datos, bibliotecas.
 
 El error de secuencia más costoso consiste en comenzar por el cuarto plano. Un equipo que inicia su análisis discutiendo el framework ya resolvió implícitamente que construirá software a medida, que el alcance es el total y que la arquitectura será la que ese framework impone. Tres decisiones adoptadas sin haber sido formuladas, y por lo tanto sin registro ni fundamento.
-
-### El último momento responsable
-
-No todas las decisiones deben tomarse al comienzo. El criterio operativo es el del **último momento responsable**: el punto a partir del cual postergar la decisión resulta más costoso que tomarla con información incompleta.
-
-El argumento que lo sostiene es de disponibilidad de información. Toda decisión adoptada tempranamente se adopta con la menor cantidad de información que el proyecto va a tener en toda su vida. Postergarla no constituye indecisión, sino una estrategia de reducción de incertidumbre, siempre que se realice el trabajo de mantener abiertas las opciones. Una decisión postergada sin ese trabajo no está postergada: fue tomada por omisión y sin registro, que es la peor de las formas posibles.
-
-La versión industrial del mismo principio es la ingeniería concurrente basada en conjuntos, documentada en el desarrollo de producto de Toyota. En lugar de seleccionar tempranamente una alternativa y corregirla después, se desarrollan varias en paralelo y se eliminan progresivamente a medida que la información se vuelve disponible. Ward, Liker, Cristiano y Sobek denominaron *la segunda paradoja de Toyota* al hecho, contraintuitivo, de que retrasar decisiones produjera mejores productos en menos tiempo.
-
-En un proyecto acotado el desarrollo paralelo de alternativas no es viable, porque consume un presupuesto que no existe. Lo que sí es viable, y es lo que esta instancia del diseño exige, es explorar dos alternativas en el plano del análisis antes de comprometer construcción. Es el único momento del proyecto en el que cambiar de posición no tiene costo de reescritura.
-
-### Comparación de alternativas
-
-El instrumento mínimo es una matriz que dispone las alternativas en columnas y los criterios en filas, con evidencia en cada celda. Los criterios provienen del estudio de factibilidad y de los atributos de calidad que el proyecto haya declarado relevantes; ningún criterio se incorpora sin que exista una respuesta a la pregunta de cómo se lo mide.
-
-Sobre las matrices ponderadas conviene una advertencia metodológica. Asignar pesos y calcular un resultado produce un número, y el número produce la impresión de que la decisión fue objetiva. No lo fue: la subjetividad se desplazó hacia los pesos, que rara vez se discuten porque quedaron fijados antes de comenzar. La matriz cumple una función de ordenamiento de la discusión y de registro, no de sustitución del juicio. Cuando el resultado del cálculo contradice el criterio del equipo, lo que corresponde revisar son los pesos, y esa revisión es la parte sustantiva del ejercicio.
 
 ### El registro de la decisión
 
@@ -290,14 +326,6 @@ La alternativa B se sostiene sobre un argumento que el ADR correspondiente debe 
 ### Síntesis
 
 El análisis de alternativas no produce una solución: produce un criterio. Su valor no está en la opción seleccionada sino en el conjunto de razones explicitadas que permiten, más adelante, evaluar si la decisión sigue siendo válida. Una decisión registrada puede revisarse; una decisión implícita sólo puede repetirse o abandonarse.
-
-### Fuentes
-
-- Richards, M. y Ford, N. (2020). *Fundamentals of Software Architecture: An Engineering Approach*, O'Reilly, cap. 1, "Introduction", sección "Laws of Software Architecture", y cap. 4, "Architecture Characteristics Defined".
-- Nygard, M. (2011). "Documenting Architecture Decisions". https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions.html · Plantillas y herramientas: https://adr.github.io/
-- Poppendieck, M. y Poppendieck, T. (2003). *Lean Software Development: An Agile Toolkit*, Addison-Wesley, cap. 3, "Decide as Late as Possible".
-- Ward, A., Liker, J., Cristiano, J. y Sobek, D. (1995). "The Second Toyota Paradox: How Delaying Decisions Can Make Better Cars Faster", *Sloan Management Review*, 36(3), pp. 43-61.
-- Fowler, M. — "Utility vs Strategic Dichotomy". https://martinfowler.com/bliki/UtilityVsStrategicDichotomy.html
 
 --------
 
@@ -504,9 +532,9 @@ El modelado funcional no documenta: decide. Su rendimiento se concentra en los p
 
 ### Modelo de dominio y modelo de datos
 
-El modelo de dominio es una representación visual de los conceptos del problema y de sus relaciones, construida durante el relevamiento con el vocabulario del cliente, y no describe almacenamiento. El modelo de datos describe cómo esos conceptos se persisten.
+El modelo de dominio, tratado en el primer tema de esta unidad, representa los conceptos del problema y sus relaciones en el vocabulario del cliente, y no describe almacenamiento. El modelo de datos describe cómo esos conceptos se persisten, y es el artefacto que se deriva de aquél.
 
-La similitud entre ambos es suficiente como para que se confundan, y la confusión tiene consecuencias observables: se terminan discutiendo claves foráneas con el cliente, o se modela el problema como si el único requisito fuera guardarlo. Larman es explícito en que el modelo de dominio no constituye un modelo de datos y no incorpora responsabilidades ni estructuras de almacenamiento. Evans avanza en otra dirección y sostiene que el modelo debe estar ligado a la implementación y expresado en el mismo lenguaje que utiliza el negocio, que es el lenguaje ubicuo establecido durante el relevamiento.
+La derivación no es automática y conviene recorrerla concepto por concepto: qué clase conceptual se convierte en tabla, cuál se parte en dos, cuál desaparece por ser un valor derivado y qué aparece en el esquema que no existía en el modelo del problema, por pertenecer a la solución.
 
 En un proyecto de esta escala ambos modelos terminarán pareciéndose considerablemente, y eso no constituye un defecto. Lo que sí constituye un defecto es no saber cuál de los dos se está construyendo, porque de ello depende con quién se lo valida.
 
