@@ -9,23 +9,20 @@
     - [Finalidad: ¿Para qué?](#finalidad-para-qué)
     - [Fundamentos: ¿Por qué?](#fundamentos-por-qué)
     - [Mecanismos: ¿Cómo?](#mecanismos-cómo)
-- [Modelo de dominio](#modelo-de-dominio)
-    - [El primer modelo del Proceso Unificado](#el-primer-modelo-del-proceso-unificado)
-    - [Qué no es un modelo de dominio](#qué-no-es-un-modelo-de-dominio)
+- [El dominio](#el-dominio)
+  - [Lenguaje ubicuo](#lenguaje-ubicuo)
+  - [Modelo de dominio](#modelo-de-dominio)
     - [Las tres construcciones](#las-tres-construcciones)
-    - [Cómo se obtiene](#cómo-se-obtiene)
     - [El modelo como acuerdo](#el-modelo-como-acuerdo)
-    - [Un ejemplo resuelto: la biblioteca](#un-ejemplo-resuelto-la-biblioteca)
+    - [Un Modelo de Dominio](#un-modelo-de-dominio)
     - [Un modelo por iteración](#un-modelo-por-iteración)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes)
     - [Síntesis](#síntesis)
-    - [Fuentes](#fuentes)
+  - [Fuentes](#fuentes)
 - [Análisis de alternativas de solución](#análisis-de-alternativas-de-solución)
     - [El problema que resuelve](#el-problema-que-resuelve)
     - [El registro de la decisión](#el-registro-de-la-decisión)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-1)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-1)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes)
     - [Síntesis](#síntesis-1)
 - [Criterios de evaluación y selección: la factibilidad](#criterios-de-evaluación-y-selección-la-factibilidad)
     - [Naturaleza del estudio de factibilidad](#naturaleza-del-estudio-de-factibilidad)
@@ -33,8 +30,8 @@
     - [Factibilidad operativa](#factibilidad-operativa)
     - [Factibilidad económica](#factibilidad-económica)
     - [Factibilidad temporal](#factibilidad-temporal)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-2)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-2)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-1)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-1)
     - [Síntesis](#síntesis-2)
     - [Fuentes](#fuentes-1)
 - [Modelado funcional: casos de uso y diagramas de secuencia](#modelado-funcional-casos-de-uso-y-diagramas-de-secuencia)
@@ -43,8 +40,8 @@
     - [Diagrama de secuencia del sistema](#diagrama-de-secuencia-del-sistema)
     - [Diagrama de secuencia de diseño](#diagrama-de-secuencia-de-diseño)
     - [Contratos de operación](#contratos-de-operación)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-3)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-3)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-2)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-2)
     - [Síntesis](#síntesis-3)
     - [Fuentes](#fuentes-2)
 - [Modelado de datos: entidad-relación y modelo relacional](#modelado-de-datos-entidad-relación-y-modelo-relacional)
@@ -53,8 +50,8 @@
     - [Derivación al modelo relacional](#derivación-al-modelo-relacional)
     - [Normalización](#normalización)
     - [El dato que cambia con el tiempo](#el-dato-que-cambia-con-el-tiempo)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-4)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-4)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-3)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-3)
     - [Síntesis](#síntesis-4)
     - [Fuentes](#fuentes-3)
 - [Diseño de procesos, componentes e interfaces](#diseño-de-procesos-componentes-e-interfaces)
@@ -64,8 +61,8 @@
     - [Asignación de responsabilidades](#asignación-de-responsabilidades)
     - [Cohesión y acoplamiento de componentes](#cohesión-y-acoplamiento-de-componentes)
     - [Diseño de procesos](#diseño-de-procesos)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-5)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-5)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-4)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-4)
     - [Síntesis](#síntesis-5)
     - [Fuentes](#fuentes-4)
 - [Arquitectura de la solución](#arquitectura-de-la-solución)
@@ -75,8 +72,8 @@
     - [Servicios e integraciones](#servicios-e-integraciones)
     - [Puertos y adaptadores](#puertos-y-adaptadores)
     - [La arquitectura y la estructura del equipo](#la-arquitectura-y-la-estructura-del-equipo)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-6)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-6)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-5)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-5)
     - [Síntesis](#síntesis-6)
     - [Fuentes](#fuentes-5)
 - [Atributos de calidad y sus tensiones](#atributos-de-calidad-y-sus-tensiones)
@@ -85,8 +82,8 @@
     - [Las tensiones](#las-tensiones)
     - [Evaluación de la arquitectura](#evaluación-de-la-arquitectura)
     - [Calidad interna y costo de cambio](#calidad-interna-y-costo-de-cambio)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-7)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-7)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-6)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-6)
     - [Síntesis](#síntesis-7)
     - [Fuentes](#fuentes-6)
 - [Prototipado y diseño de interfaces](#prototipado-y-diseño-de-interfaces)
@@ -97,8 +94,8 @@
     - [Heurísticas de usabilidad](#heurísticas-de-usabilidad)
     - [Accesibilidad](#accesibilidad)
     - [Consistencia visual e identidad de producto](#consistencia-visual-e-identidad-de-producto)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-8)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-8)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-7)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-7)
     - [Síntesis](#síntesis-8)
     - [Fuentes](#fuentes-7)
 - [Definición de tecnologías y herramientas de desarrollo](#definición-de-tecnologías-y-herramientas-de-desarrollo)
@@ -107,8 +104,8 @@
     - [Criterios de selección](#criterios-de-selección)
     - [El esqueleto ambulante](#el-esqueleto-ambulante)
     - [Las herramientas que no son el lenguaje](#las-herramientas-que-no-son-el-lenguaje)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-9)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-9)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-8)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-8)
     - [Síntesis](#síntesis-9)
     - [Fuentes](#fuentes-8)
 - [Los hilos que atraviesan la unidad](#los-hilos-que-atraviesan-la-unidad)
@@ -154,7 +151,30 @@ El diseño de una solución no se realiza mediante una técnica única ni produc
 
 --------
 
-# Modelo de dominio
+# El dominio
+
+Todo sistema de software se construye para un ámbito de actividad que existe antes que él y que seguiría existiendo sin él. Una biblioteca presta libros, una escuela registra la asistencia de sus estudiantes, una obra social autoriza prácticas médicas. Cada una de esas actividades tiene sus propios conceptos, sus reglas, sus excepciones y su vocabulario, y ninguno de ellos lo inventó el equipo de desarrollo. Ese ámbito —la parcela del mundo real sobre la que el sistema va a operar— es el **dominio**.
+
+La distinción ordena el trabajo de toda la unidad. El dominio pertenece al espacio del problema: describe cómo funciona la actividad, con independencia del software que se decida construir. La arquitectura, las tecnologías, el esquema de la base de datos y la interfaz pertenecen al espacio de la solución, y sólo se justifican medidos contra el problema al que responden.
+
+El conocimiento del dominio no suele estar escrito en ningún lado, sino que está repartido entre las personas que trabajan en él todos los días —los **expertos del dominio**— y en buena medida es tácito: lo aplican con soltura sin poder enunciarlo. De ahí que el análisis no consista en recibir una especificación sino en construirla junto a ellos, y que en el relevamiento las preguntas valgan tanto como las respuestas.
+
+Comprender un dominio tampoco significa reproducirlo. Un modelo es una simplificación deliberada: retiene lo que el problema exige y descarta todo lo demás. No existe *el* modelo correcto de un dominio; existe un modelo útil para el sistema que se está construyendo, y deja de serlo cuando cambia aquello que el sistema debe resolver.
+
+Cuando el equipo y el cliente hablan de lo mismo con palabras distintas, alguien traduce. El bibliotecario dice "socio" y el sistema guarda un `Usuario`; el cliente llama "baja" a lo que en la base de datos es un campo `activo = false`. Cada traducción es una oportunidad de error que no deja rastro: nadie la registra, nadie la revisa y su costo aparece mucho después, cuando lo construido no es lo que se había pedido y ambas partes creen tener razón.
+
+Domain-Driven Design propone eliminar esa traducción en lugar de administrarla. El **lenguaje ubicuo** es un vocabulario único, construido entre el equipo y los expertos del dominio, que se usa sin variantes en las conversaciones, en las historias de usuario, en los diagramas, en el modelo de datos y en el código fuente.
+
+>Usen el modelo como columna vertebral de un lenguaje. Comprometan al equipo a ejercitar ese lenguaje sin excepciones en toda comunicación dentro del equipo y en el código. Usen el mismo lenguaje en los diagramas, en los textos y sobre todo al hablar.
+>
+>Domain-Driven Design - Eric Evans, cap. 2, "Ubiquitous Language"
+
+La regla práctica es directa: si en una reunión alguien necesita traducir, el lenguaje todavía no es ubicuo. El esfuerzo de sostenerlo lo paga el equipo, no el cliente, porque es el equipo el que tiene la libertad de elegir cómo nombrar sus propias construcciones.
+
+## Definición de RAE
+![](ubicuo.png)
+
+## Modelo de dominio
 
 El modelado de dominio es una actividad de análisis que busca comprender y representar el mundo del problema para el cual se construirá un sistema de software. Antes de hablar de pantallas, bases de datos, clases de programación o tecnología, necesitamos entender qué conceptos existen en el negocio, cómo se relacionan, qué reglas deben cumplirse y qué vocabulario usan las personas que conocen ese dominio.
 
@@ -229,6 +249,13 @@ El criterio de tamaño es el uso: el modelo sirve mientras se lo puede leer comp
 ### Síntesis
 
 El modelo de dominio es el glosario dibujado: los conceptos del problema, sus relaciones y sus datos simples, **en las palabras del cliente y sin decisiones de software**. Se construye durante el relevamiento, se valida con quien conoce el dominio y se amplía en cada iteración. Su valor no reside en la completitud del diagrama sino en dos efectos: fija el vocabulario con el que se van a escribir las historias, el modelo de datos y el código, y hace visible lo que el dominio todavía no tiene resuelto. Un modelo que no puede leerse en una reunión, o que el cliente nunca leyó, no cumple ninguna de las dos funciones.
+
+## Fuentes
+
+- Evans, E. (2003). *Domain-Driven Design*, Addison-Wesley, cap. 1, "Crunching Knowledge", y cap. 2, "Communication and the Use of Language", patrón "Ubiquitous Language". Fragmento traducido disponible en el repositorio: [DDD - Lenguaje ubicuo](/unidad-2/DDD%20-%20Lenguaje%20ubicuo.pdf).
+- Jacobson, I., Booch, G. y Rumbaugh, J. (1999). *The Unified Software Development Process*, Addison-Wesley, cap. 6, "Capturing Requirements", secc. "Understanding the System Context Using a Domain Model".
+- Larman, C. *Applying UML and Patterns* (3ª ed.), Prentice Hall, cap. 9, "Domain Models: Visualizing Concepts".
+- Fowler, M. — "Ubiquitous Language", https://martinfowler.com/bliki/UbiquitousLanguage.html
 
 --------
 
