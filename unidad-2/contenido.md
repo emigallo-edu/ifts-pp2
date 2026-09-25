@@ -10,7 +10,7 @@
     - [Fundamentos: ¿Por qué?](#fundamentos-por-qué)
     - [Mecanismos: ¿Cómo?](#mecanismos-cómo)
 - [El dominio](#el-dominio)
-  - [Lenguaje ubicuo](#lenguaje-ubicuo)
+  - [Definición de RAE](#definición-de-rae)
   - [Modelo de dominio](#modelo-de-dominio)
     - [Las tres construcciones](#las-tres-construcciones)
     - [El modelo como acuerdo](#el-modelo-como-acuerdo)
@@ -18,31 +18,26 @@
     - [Un modelo por iteración](#un-modelo-por-iteración)
     - [Síntesis](#síntesis)
   - [Fuentes](#fuentes)
-- [Análisis de alternativas de solución](#análisis-de-alternativas-de-solución)
-    - [El problema que resuelve](#el-problema-que-resuelve)
-    - [El registro de la decisión](#el-registro-de-la-decisión)
+- [Alternativas de solución y factibilidad](#alternativas-de-solución-y-factibilidad)
+    - [Antes de comenzar...](#antes-de-comenzar)
+    - [Alternativas sobre el problema, no sobre la arquitectura](#alternativas-sobre-el-problema-no-sobre-la-arquitectura)
+    - [Decidir en el último momento responsable](#decidir-en-el-último-momento-responsable)
+    - [La factibilidad como riesgos a despejar](#la-factibilidad-como-riesgos-a-despejar)
     - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes)
+    - [El registro de la decisión](#el-registro-de-la-decisión)
     - [Síntesis](#síntesis-1)
-- [Criterios de evaluación y selección: la factibilidad](#criterios-de-evaluación-y-selección-la-factibilidad)
-    - [Naturaleza del estudio de factibilidad](#naturaleza-del-estudio-de-factibilidad)
-    - [Factibilidad técnica](#factibilidad-técnica)
-    - [Factibilidad operativa](#factibilidad-operativa)
-    - [Factibilidad económica](#factibilidad-económica)
-    - [Factibilidad temporal](#factibilidad-temporal)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-1)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-1)
-    - [Síntesis](#síntesis-2)
     - [Fuentes](#fuentes-1)
 - [Modelado funcional: casos de uso y diagramas de secuencia](#modelado-funcional-casos-de-uso-y-diagramas-de-secuencia)
     - [El modo de uso determina el detalle](#el-modo-de-uso-determina-el-detalle)
     - [El caso de uso como descripción de comportamiento](#el-caso-de-uso-como-descripción-de-comportamiento)
     - [Diagrama de secuencia del sistema](#diagrama-de-secuencia-del-sistema)
+    - [Diagrama de clases](#diagrama-de-clases)
+    - [Del caso de uso al código](#del-caso-de-uso-al-código)
     - [Diagrama de secuencia de diseño](#diagrama-de-secuencia-de-diseño)
     - [Contratos de operación](#contratos-de-operación)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-2)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-2)
-    - [Síntesis](#síntesis-3)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-1)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes)
+    - [Síntesis](#síntesis-2)
     - [Fuentes](#fuentes-2)
 - [Modelado de datos: entidad-relación y modelo relacional](#modelado-de-datos-entidad-relación-y-modelo-relacional)
     - [Modelo de dominio y modelo de datos](#modelo-de-dominio-y-modelo-de-datos)
@@ -50,9 +45,9 @@
     - [Derivación al modelo relacional](#derivación-al-modelo-relacional)
     - [Normalización](#normalización)
     - [El dato que cambia con el tiempo](#el-dato-que-cambia-con-el-tiempo)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-3)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-3)
-    - [Síntesis](#síntesis-4)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-2)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-1)
+    - [Síntesis](#síntesis-3)
     - [Fuentes](#fuentes-3)
 - [Diseño de procesos, componentes e interfaces](#diseño-de-procesos-componentes-e-interfaces)
     - [El criterio de descomposición](#el-criterio-de-descomposición)
@@ -61,9 +56,9 @@
     - [Asignación de responsabilidades](#asignación-de-responsabilidades)
     - [Cohesión y acoplamiento de componentes](#cohesión-y-acoplamiento-de-componentes)
     - [Diseño de procesos](#diseño-de-procesos)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-4)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-4)
-    - [Síntesis](#síntesis-5)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-3)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-2)
+    - [Síntesis](#síntesis-4)
     - [Fuentes](#fuentes-4)
 - [Arquitectura de la solución](#arquitectura-de-la-solución)
     - [Qué es la arquitectura de un software](#qué-es-la-arquitectura-de-un-software)
@@ -72,9 +67,9 @@
     - [Servicios e integraciones](#servicios-e-integraciones)
     - [Puertos y adaptadores](#puertos-y-adaptadores)
     - [La arquitectura y la estructura del equipo](#la-arquitectura-y-la-estructura-del-equipo)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-5)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-5)
-    - [Síntesis](#síntesis-6)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-4)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-3)
+    - [Síntesis](#síntesis-5)
     - [Fuentes](#fuentes-5)
 - [Atributos de calidad y sus tensiones](#atributos-de-calidad-y-sus-tensiones)
     - [Del adjetivo al escenario](#del-adjetivo-al-escenario)
@@ -82,9 +77,9 @@
     - [Las tensiones](#las-tensiones)
     - [Evaluación de la arquitectura](#evaluación-de-la-arquitectura)
     - [Calidad interna y costo de cambio](#calidad-interna-y-costo-de-cambio)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-6)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-6)
-    - [Síntesis](#síntesis-7)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-5)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-4)
+    - [Síntesis](#síntesis-6)
     - [Fuentes](#fuentes-6)
 - [Prototipado y diseño de interfaces](#prototipado-y-diseño-de-interfaces)
     - [El prototipo como experimento](#el-prototipo-como-experimento)
@@ -94,9 +89,9 @@
     - [Heurísticas de usabilidad](#heurísticas-de-usabilidad)
     - [Accesibilidad](#accesibilidad)
     - [Consistencia visual e identidad de producto](#consistencia-visual-e-identidad-de-producto)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-7)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-7)
-    - [Síntesis](#síntesis-8)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-6)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-5)
+    - [Síntesis](#síntesis-7)
     - [Fuentes](#fuentes-7)
 - [Definición de tecnologías y herramientas de desarrollo](#definición-de-tecnologías-y-herramientas-de-desarrollo)
     - [La pregunta correcta](#la-pregunta-correcta)
@@ -104,9 +99,9 @@
     - [Criterios de selección](#criterios-de-selección)
     - [El esqueleto ambulante](#el-esqueleto-ambulante)
     - [Las herramientas que no son el lenguaje](#las-herramientas-que-no-son-el-lenguaje)
-    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-8)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-8)
-    - [Síntesis](#síntesis-9)
+    - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-7)
+    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-6)
+    - [Síntesis](#síntesis-8)
     - [Fuentes](#fuentes-8)
 - [Los hilos que atraviesan la unidad](#los-hilos-que-atraviesan-la-unidad)
 
@@ -138,8 +133,7 @@ El concepto de **costo del cambio** adquiere centralidad. Toda decisión de dise
 El diseño de una solución no se realiza mediante una técnica única ni produce un artefacto único. Se realiza a través de un conjunto articulado de análisis, modelos y decisiones registradas, cuya finalidad es reducir la incertidumbre antes de comprometer construcción:
 
 - construcción del modelo de dominio: los conceptos del problema, sus relaciones y su vocabulario;
-- análisis comparado de alternativas de solución;
-- estudio de factibilidad técnica, operativa, económica y temporal;
+- comparación de alternativas de solución y evaluación de su factibilidad;
 - modelado del comportamiento mediante casos de uso y diagramas de secuencia;
 - modelado de datos mediante entidad-relación y su derivación al modelo relacional;
 - descomposición en componentes según criterios de cohesión, acoplamiento e interfaz;
@@ -259,196 +253,99 @@ El modelo de dominio es el glosario dibujado: los conceptos del problema, sus re
 
 --------
 
-# Análisis de alternativas de solución
+# Alternativas de solución y factibilidad
 
-### El problema que resuelve
+### Antes de comenzar...
 
-Un equipo que dispone de una sola propuesta no realizó una elección: adoptó la primera representación de la solución que estuvo disponible. Esa primera representación tiene una propiedad que conviene reconocer, porque se repite con regularidad: suele coincidir con aquello que el equipo ya sabía construir antes de escuchar al cliente. El análisis de alternativas existe para interrumpir esa coincidencia.
+- ¿tenemos que decidir la arquitectura antes de saber qué vamos a construir?
+- ¿qué decisiones conviene tomar ahora, y cuáles podemos dejar para más adelante?
 
-El análisis comparado cumple además una función que no es evidente. Comparar dos alternativas obliga a explicitar el criterio con el cual se las compara, y ese criterio —no la alternativa seleccionada— es lo que sostiene después las decisiones de arquitectura. Una sola alternativa mantiene el criterio implícito; dos lo vuelven necesario. Por eso el resultado más valioso de este análisis no es la opción ganadora sino la lista de criterios que la hicieron ganar, que es la que permite revisar la decisión cuando el contexto cambie.
+Este tema lo vamos a ver de forma general, para tener una noción de cómo se decide en un proyecto. No buscamos hacer un estudio de factibilidad completo ni diseñar arquitecturas en papel antes de construir. El software se construye de a poco, y buena parte de la arquitectura se va encontrando en el camino. Lo que sí necesitamos es saber distinguir las pocas decisiones que conviene pensar antes, de las muchas que podemos ir descubriendo.
 
-Esta dinámica es un caso particular de una propiedad general del diseño de software, que Richards y Ford enuncian como primera ley de la arquitectura.
+### Alternativas sobre el problema, no sobre la arquitectura
 
-##### 1. Construir, adaptar o adquirir
+Cuando hablamos de alternativas no nos referimos a dibujar tres arquitecturas y elegir una. Eso supondría saber de antemano qué vamos a construir, y justamente es lo que todavía no sabemos. Las alternativas que sí tiene sentido pensar al inicio son sobre el problema:
+- ¿hace falta construir software, o el problema se resuelve con herramientas que ya existen?;
+- ¿qué parte del problema vamos a resolver en esta versión?;
+- ¿qué pasaría si no construyéramos nada, y la clienta siguiera como hoy?
 
-Es la primera pregunta y la que menos se formula: si el problema requiere efectivamente escribir software nuevo, o si admite una solución armada con herramientas existentes. Fowler propone una distinción útil para responderla, entre el software **estratégico** —aquel que constituye la ventaja propia y por lo tanto conviene construir— y el software **de utilidad** —aquel que todas las organizaciones necesitan y en el que ninguna obtiene ventaja por tener una versión propia—. La distinción no resuelve la decisión, pero la ordena: identifica qué parte del sistema justifica esfuerzo de construcción y cuál no.
+La arquitectura y la tecnología también son decisiones, pero no se eligen de entrada entre opciones prefabricadas. Se van definiendo a medida que construimos y aprendemos. Si arrancamos discutiendo qué framework usar, ya dimos por resuelto, sin discutirlo, que vamos a construir software a medida y que el alcance es el total.
 
-##### 2. Alcance
+### Decidir en el último momento responsable
 
-Qué porción del problema se resuelve en esta versión. Es la dimensión con mayor impacto sobre la viabilidad del proyecto y la que admite más variantes legítimas: la misma problemática puede abordarse resolviendo el ciclo completo o resolviendo únicamente el segmento donde la información hoy no existe.
+No se trata de postergar, sino de no decidir antes de tener la información necesaria. Cada decisión que tomamos temprano la tomamos sabiendo lo mínimo sobre el problema. Si podemos esperar a conocer mejor lo que tenemos que construir, la decisión va a ser mejor.
 
-##### 3. Arquitectura
+Pero no todas las decisiones pueden esperar lo mismo, porque no todas cuestan lo mismo de revertir.
 
-Cómo se organiza lo que se construye. Aplicación con servidor, aplicación de escritorio, proceso que produce un informe periódico. Cada opción determina qué atributos de calidad resultan alcanzables y cuáles quedan comprometidos.
+> La arquitectura representa las decisiones de diseño significativas que dan forma a un sistema, donde la significancia se mide por el costo del cambio.
+>
+> Grady Booch
 
-##### 4. Tecnología
+### La factibilidad como riesgos a despejar
 
-Con qué se construye. Lenguaje, motor de base de datos, bibliotecas.
+La pregunta de factibilidad es si la solución puede realmente llevarse a cabo. En lugar de responderla con un estudio en papel al inicio del proyecto, la vamos a pensar como una lista de riesgos que se despejan construyendo y probando. Son cuatro dimensiones, y alcanza con que una falle para que la solución no sea viable.
 
-El error de secuencia más costoso consiste en comenzar por el cuarto plano. Un equipo que inicia su análisis discutiendo el framework ya resolvió implícitamente que construirá software a medida, que el alcance es el total y que la arquitectura será la que ese framework impone. Tres decisiones adoptadas sin haber sido formuladas, y por lo tanto sin registro ni fundamento.
+| Dimensión | Pregunta | Cómo la despejamos |
+|---|---|---|
+| **Técnica** | ¿Existe la tecnología y el equipo sabe usarla? | Construyendo una prueba mínima de punta a punta |
+| **Operativa** | ¿Alguien va a usar el sistema en su trabajo real? | Mostrándole a la usuaria algo usable lo antes posible |
+| **Económica** | ¿El beneficio justifica el esfuerzo? | Comparando contra la alternativa de no construir |
+| **Temporal** | ¿Entra en el plazo? | Recortando alcance, porque la fecha no se mueve |
+
+En el proyecto de la materia, la económica y la temporal ya vienen dadas: tenemos unas 60 horas-persona por equipo y una fecha fija. Lo único que podemos ajustar es el alcance.
+
+Las dos que requieren trabajo real son la técnica y la operativa. La técnica no se responde discutiendo si "podemos hacerlo", sino construyéndolo en pequeño. La operativa es la que más proyectos correctos hace fracasar: un sistema que depende de que alguien cargue datos en un momento en que está ocupado con otra cosa, no va a ser alimentado, por más bien construido que esté. Ninguna de las dos se despeja del todo al inicio: se vuelven a mirar en cada incremento.
+
+### Aplicación al proyecto guía
+
+| | **A. Planilla instrumentada** | **B. Aplicación con panel** | **C. Integración con el sistema académico** |
+|---|---|---|---|
+| Qué es | Planilla con fórmulas de riesgo y formato condicional | Aplicación propia: registro, cálculo, panel e intervenciones | La anterior, alimentada desde el sistema del instituto |
+| Qué resuelve | El cruce entre asistencia y entregas | El cruce, la priorización y el seguimiento en el tiempo | Todo lo anterior, sin carga manual |
+| Riesgo principal | La clienta tiene que mantener fórmulas | Que registrar la asistencia le lleve más tiempo del que tiene | **Inviable**: el instituto no expone su base de datos |
+
+Estas no son tres arquitecturas, son tres formas de resolver el problema de la clienta.
+
+La planilla no es una opción de relleno, es nuestra vara de comparación. Si lo que proponemos construir no la supera con claridad, el problema no está en cómo lo construimos sino en cómo definimos el alcance.
+
+La integración se descarta porque depende de algo que no controlamos. Dejarlo por escrito sirve para dos cosas: queda claro que la evaluamos, y queda identificado el camino para una versión posterior.
+
+Elegimos B porque el problema de la clienta no es cruzar dos planillas, sino hacer un seguimiento de cada estudiante a lo largo del tiempo. Y eso es justamente lo que una planilla no hace. Lo que no decidimos todavía es cómo se organiza esa aplicación por dentro: eso lo vamos a ir encontrando a medida que construyamos las primeras historias.
 
 ### El registro de la decisión
 
-Una decisión sin registro se vuelve a discutir, y se vuelve a discutir en el peor momento posible: varios incrementos después, cuando ya existe código construido sobre ella y nadie conserva el contexto que la justificó.
+Si las decisiones se van tomando a lo largo del proyecto, necesitamos dejarlas registradas a medida que ocurren. Una decisión que no se registra se vuelve a discutir, y generalmente en el peor momento: varios incrementos después, cuando ya hay código construido encima y nadie recuerda por qué se tomó.
 
-El formato de referencia es el **registro de decisión de arquitectura** (ADR), propuesto por Michael Nygard. Es un documento breve, versionado junto con el código, con cinco secciones.
-
-```text
-┌──────────────────────────────────────────────────────────────────────┐
-│ TÍTULO                                                               │
-│ Frase nominal corta y numerada                                       │
-│ "ADR 3: El cálculo de riesgo se resuelve en el servidor"             │
-├──────────────────────────────────────────────────────────────────────┤
-│ ESTADO                                                               │
-│ propuesta | aceptada | obsoleta | reemplazada por ADR N              │
-├──────────────────────────────────────────────────────────────────────┤
-│ CONTEXTO                                                             │
-│ Las fuerzas en juego: técnicas, organizacionales, de plazo.          │
-│ Redactado en lenguaje neutral, sin defender todavía ninguna opción   │
-├──────────────────────────────────────────────────────────────────────┤
-│ DECISIÓN                                                             │
-│ "Vamos a...". Voz activa, oración completa                           │
-├──────────────────────────────────────────────────────────────────────┤
-│ CONSECUENCIAS                                                        │
-│ El contexto resultante tras aplicar la decisión:                     │
-│ lo positivo, lo negativo y lo neutro                                 │
-└──────────────────────────────────────────────────────────────────────┘
-```
-
-Nygard insiste en dos condiciones de forma que determinan si el instrumento funciona: que el documento completo ocupe una o dos páginas, y que esté redactado en prosa legible y no en enumeraciones sueltas.
+Para eso vamos a usar el **registro de decisión de arquitectura** (ADR), propuesto por Michael Nygard. Es un documento breve, que se versiona junto con el código y se escribe en el momento en que se toma la decisión, no antes.
 
 >Cada registro describe un conjunto de fuerzas y una única decisión en respuesta a ellas. [...] El documento completo debería tener una o dos páginas de extensión. Escribiremos cada uno como si fuera una conversación con un futuro desarrollador.
 >
 >[Documenting Architecture Decisions - Michael Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions.html)
 
-La sección que con mayor frecuencia se omite es la última, y es la que otorga valor al registro: una decisión cuyas consecuencias negativas no fueron escritas no fue evaluada, fue justificada. La distinción no es retórica. Un ADR sin consecuencias adversas es indistinguible de una defensa, y por lo tanto no permite revisar nada.
-
-Un ADR no se edita cuando la decisión cambia. Se redacta uno nuevo que reemplaza al anterior, y el anterior conserva su estado de reemplazado. La secuencia de decisiones constituye información en sí misma: documenta qué se sabía en cada momento del proyecto, y es el material con el que se sostiene después la fundamentación de lo construido.
-
-### Aplicación al proyecto guía
-
-El encargo del proyecto guía admite al menos tres alternativas defendibles, con esfuerzo creciente.
-
-| | **A. Planilla instrumentada** | **B. Aplicación con panel** | **C. Integración con el sistema académico** |
-|---|---|---|---|
-| Naturaleza | Planilla de cálculo con fórmulas de riesgo y formato condicional | Aplicación propia: registro, cálculo, panel, alertas e intervenciones | La anterior, alimentada desde el sistema del instituto |
-| Origen de los datos | Carga manual, como en la situación actual | Carga manual en pantallas diseñadas para esa tarea | Importación |
-| Qué resuelve | El cruce entre asistencia y entregas | El cruce, la priorización, el historial y el seguimiento de las intervenciones | Todo lo anterior, más el trabajo de carga |
-| Qué no resuelve | El seguimiento en el tiempo; la clienta sigue manteniendo fórmulas | La carga continúa siendo manual | — |
-
-La alternativa A no es una opción de relleno y constituye la vara de comparación del proyecto. Resuelve la queja literal del encargo —el cruce manual entre dos fuentes de datos— con un esfuerzo de construcción marginal. Si la solución que el equipo propone construir no supera con claridad a una planilla bien confeccionada, el problema no reside en la calidad de la construcción sino en la definición del alcance.
-
-La alternativa C se descarta por factibilidad y no por preferencia: el instituto no expone su base de datos, lo que constituye una limitación del entorno en el sentido establecido en la unidad anterior, y por lo tanto no es negociable. Descartarla por escrito cumple dos funciones: deja constancia de que fue evaluada y deja identificado el camino de evolución para una versión posterior.
-
-La alternativa B se sostiene sobre un argumento que el ADR correspondiente debe explicitar: el problema del cliente no consiste en cruzar dos planillas sino en sostener un seguimiento a lo largo del tiempo, y registrar qué se hizo con cada estudiante y con qué resultado es precisamente lo que una planilla no hace.
-
-### Anti-patrones frecuentes
-
-- **Alternativas decorativas**: presentar tres opciones donde dos fueron construidas para perder. El análisis pierde toda función de control y se transforma en una justificación.
-- **Comenzar por la tecnología**: discutir el framework antes que el alcance implica haber tomado ya, sin formularlas, las tres decisiones anteriores.
-- **Descarte sin fundamento medible**: afirmar que una alternativa "no escala" sin definir qué carga se espera ni cómo se la mediría. Es una opinión enunciada con vocabulario técnico.
-- **ADR sin consecuencias adversas**: convierte el registro en una defensa y elimina su utilidad para revisar la decisión más adelante.
-- **Delegar la decisión en la matriz ponderada**: el resultado numérico no reemplaza el juicio; sólo desplaza la subjetividad hacia los pesos.
-
-### Síntesis
-
-El análisis de alternativas no produce una solución: produce un criterio. Su valor no está en la opción seleccionada sino en el conjunto de razones explicitadas que permiten, más adelante, evaluar si la decisión sigue siendo válida. Una decisión registrada puede revisarse; una decisión implícita sólo puede repetirse o abandonarse.
-
---------
-
-# Criterios de evaluación y selección: la factibilidad
-
-### Naturaleza del estudio de factibilidad
-
-El estudio de factibilidad es la respuesta estructurada a una pregunta única: si el proyecto puede efectivamente realizarse. Se responde por cuatro vías independientes, y la falla de cualquiera de ellas invalida la alternativa completa.
-
-| Dimensión | Pregunta | Consecuencia de no evaluarla |
-|---|---|---|
-| **Técnica** | ¿Existe la tecnología, está disponible y el equipo puede usarla? | Se descubre a mitad de la construcción, sin margen de corrección |
-| **Operativa** | ¿El sistema va a ser usado, y por quién? | Se entrega una solución correcta que nadie incorpora a su trabajo |
-| **Económica** | ¿El beneficio justifica el esfuerzo? | Se invierte más de lo que el problema justificaba |
-| **Temporal** | ¿Entra en el plazo disponible? | Se llega al hito con una fracción del alcance comprometido |
-
-Kendall y Kendall ubican este estudio en la iniciación del proyecto y son explícitos respecto de la función que cumple: no es un trámite destinado a justificar una decisión ya adoptada, sino el filtro que descarta proyectos. Un estudio de factibilidad del que nunca resulta un rechazo no está operando como filtro, sino como formalidad.
-
-Conviene señalar que las cuatro dimensiones no tienen el mismo grado de dificultad para un equipo de desarrollo. La técnica resulta cómoda porque se formula en el vocabulario propio de la disciplina; las otras tres exigen mirar la organización, el presupuesto y el calendario, y son sistemáticamente las que se evalúan peor.
-
-### Factibilidad técnica
-
-Interroga si la tecnología necesaria existe, si está disponible y si el equipo puede utilizarla. Las tres condiciones son distintas entre sí, y la que habitualmente falla es la tercera.
-
-La evaluación honesta de esta dimensión no consiste en discutir si el equipo puede, sino en verificarlo mediante una construcción reducida. Farley desarrolla este criterio bajo la noción de trabajo experimental: un experimento requiere una hipótesis, una medición y control de las variables, y produce evidencia donde una discusión produce opiniones. Una construcción de dos horas que levante un servidor, persista un registro y lo recupere responde la pregunta técnica con un grado de certeza que ninguna deliberación alcanza.
-
-Esta idea reaparece más adelante bajo la forma del esqueleto ambulante, que es su aplicación sistemática al inicio del proyecto.
-
-### Factibilidad operativa
-
-Interroga si el sistema será efectivamente utilizado. Es la dimensión que invalida la mayor cantidad de proyectos técnicamente correctos, y exige desplazar la mirada del código hacia la persona y hacia el proceso de trabajo en el que el sistema se va a insertar.
-
-Tres controles concretos permiten evaluarla:
-
-- **Quién produce el dato, en qué momento y con qué esfuerzo.** Un sistema cuyo funcionamiento depende de que alguien registre información en un momento en que esa persona está ocupada en otra tarea no será alimentado, con independencia de su corrección.
-- **Qué ocurre cuando el dato falta.** Un sistema que se vuelve inconsistente ante un registro omitido no es operable en condiciones reales, donde los registros se omiten.
-- **Qué deja de hacer el usuario.** Si la solución se suma al procedimiento vigente en lugar de reemplazarlo, el trabajo total aumentó y la adopción no se va a producir.
-
-La relación con el relevamiento es directa: el enemigo de la factibilidad operativa es el supuesto no verificado. La afirmación de que el usuario registrará la información en el momento en que el hecho ocurre es un supuesto, y como tal requiere responsable y fecha de verificación.
-
-### Factibilidad económica
-
-En contextos profesionales se calcula sobre costo de desarrollo, costo de operación y beneficio esperado. En un proyecto académico la unidad de medida no es monetaria sino la **hora-persona**, y el presupuesto se encuentra fijado de antemano.
-
 ```text
-  Equipo                                   3 a 4 integrantes
-  Dedicación                               1 a 2 horas semanales por integrante
-  Incrementos de desarrollo                9
-  ────────────────────────────────────────────────────────────────────────────
-  Presupuesto total                        ~60 horas-persona por equipo
-  Disponible por historia                  ~4 horas-persona
-  (incluye especificación, construcción, pruebas y documentación)
+┌──────────────────────────────────────────────────────────────────────┐
+│ TÍTULO         "ADR 3: El cálculo de riesgo se resuelve en el        │
+│                 servidor"                                            │
+│ ESTADO         propuesta | aceptada | obsoleta | reemplazada por N   │
+│ CONTEXTO       Las fuerzas en juego, sin defender ninguna opción     │
+│ DECISIÓN       "Vamos a...", en voz activa                           │
+│ CONSECUENCIAS  Lo positivo, lo negativo y lo neutro                  │
+└──────────────────────────────────────────────────────────────────────┘
 ```
 
-Ese número tiene una consecuencia que conviene enunciar antes de que se manifieste: toda funcionalidad que consuma más de cinco horas-persona está desplazando una historia completa del backlog. La factibilidad económica de un proyecto con presupuesto fijo se juega íntegramente en la decisión sobre qué no se construye.
+La sección que más se omite es la de consecuencias, y es la que le da valor al registro. Si no escribimos lo negativo de una decisión, no la evaluamos: la defendimos.
 
-El concepto ausente en la mayoría de los análisis es el de **costo de oportunidad**. El costo real de construir la importación desde archivo no son las horas que insume, sino las funcionalidades del panel que no se construyeron durante esas horas. El costo se mide contra la mejor alternativa disponible para esos mismos recursos, nunca contra cero.
-
-### Factibilidad temporal
-
-Interroga si el alcance comprometido entra en el plazo. Cuando la fecha es inamovible, el planteo tradicional se invierte: el tiempo y los recursos quedan fijos y la única variable disponible es el alcance. De ahí que la priorización no constituya una tarea administrativa sino la decisión central del proyecto, y que el principio de simplicidad del Manifiesto Ágil —maximizar la cantidad de trabajo no realizado— sea una consecuencia lógica de tener tiempo fijo antes que una preferencia estética.
-
-Lo que esta unidad agrega respecto del tratamiento del alcance en la unidad anterior es que el diseño incide sobre el plazo en ambas direcciones. Una arquitectura que el equipo no comprende consume semanas en diagnóstico; una arquitectura que separa el cálculo del registro permite construir y demostrar el cálculo sin esperar a que el registro esté completo. Elegir una arquitectura es, entre otras cosas, elegir el orden en que resulta posible entregar.
-
-### Aplicación al proyecto guía
-
-Las tres alternativas, evaluadas sobre las cuatro dimensiones:
-
-| | **A. Planilla** | **B. Aplicación** | **C. Integración** |
-|---|---|---|---|
-| **Técnica** | Alta: la herramienta ya está en uso | Media: el equipo no cursó aún los módulos de desarrollo web. Se mitiga con una construcción mínima de punta a punta al inicio | **Inviable**: el instituto no expone su base de datos |
-| **Operativa** | Media: persiste la dependencia del mantenimiento de fórmulas | Media-alta si el registro resulta rápido. **Constituye el riesgo principal del proyecto** | Alta: elimina la carga manual |
-| **Económica** | Esfuerzo marginal, pero no cubre el encargo completo | Consume exactamente el presupuesto disponible | Excede el presupuesto |
-| **Temporal** | Entra en un incremento | Entra con recorte sostenido del alcance | No entra |
-
-El resultado del análisis no es la selección de la alternativa B, sino su selección bajo dos condiciones escritas: que la pantalla de registro de asistencia se diseñe contra el tiempo real disponible de la usuaria, y que el recorte de alcance sea una decisión permanente y no una intención. Ese es el nivel de fundamentación que distingue un análisis de una justificación.
-
-### Anti-patrones frecuentes
-
-- **Factibilidad afirmativa**: un párrafo que concluye que todo es factible. Un estudio que no descarta nada no cumple función de filtro.
-- **Evaluar sólo la dimensión técnica**: es la única de las cuatro formulada en el vocabulario propio del equipo, y por eso la única que se evalúa con detalle.
-- **Estimar sin contabilizar pruebas, documentación e integración**: es la causa más frecuente de subestimación sistemática.
-- **Confundir disponibilidad con competencia**: la distancia entre que una tecnología exista y que el equipo pueda usarla se mide en semanas de proyecto.
-- **Evaluar cada funcionalidad contra cero**: ignora el costo de oportunidad y produce un backlog en el que todo parece justificable.
+Cuando una decisión cambia, el ADR no se edita. Se escribe uno nuevo que reemplaza al anterior. Así, la secuencia de ADR cuenta cómo fue apareciendo la arquitectura: qué sabíamos en cada momento y por qué decidimos lo que decidimos.
 
 ### Síntesis
 
-La factibilidad es el mecanismo por el cual una alternativa deja de ser una intención y se convierte en un compromiso. Su función es descartar, y un estudio que no descarta no está evaluando. En un proyecto con presupuesto y fecha fijos, la dimensión decisiva no es la técnica sino la económica, porque determina qué queda fuera; y la más frecuentemente subestimada es la operativa, porque sólo se manifiesta cuando el sistema ya está construido.
+Al inicio del proyecto elegimos qué problema resolver y cuánto de él, no la arquitectura. Las decisiones se toman cuando tenemos información para tomarlas, y sólo las de una vía merecen detenerse antes de construir. La factibilidad no es un estudio previo, sino un conjunto de riesgos que vamos despejando en cada incremento. Y cada decisión queda registrada en el momento en que se toma, con sus costos.
 
 ### Fuentes
 
-- Kendall, K. y Kendall, J. *Análisis y diseño de sistemas* (8ª ed.), Pearson, cap. 3, "Administración de proyectos", secciones sobre iniciación del proyecto y determinación de la factibilidad técnica, económica y operativa.
-- Senn, J. *Análisis y diseño de sistemas de información* (2ª ed.), McGraw-Hill, cap. sobre investigación preliminar y estudio de factibilidad.
-- Farley, D. (2021). *Modern Software Engineering*, Addison-Wesley, cap. 8, "Being Experimental", secciones "Hypothesis", "Measurement" y "Controlling the Variables".
-- Beck, K. y Fowler, M. (2000). *Planning Extreme Programming*, Addison-Wesley, caps. sobre el juego de la planificación y sobre alcance variable.
-- DeMarco, T. y Lister, T. (2003). *Waltzing with Bears: Managing Risk on Software Projects*, Dorset House, parte I.
+- Fowler, M. (2003). "Who Needs an Architect?", *IEEE Software*, vol. 20, n.º 5. https://martinfowler.com/ieeeSoftware/whoNeedsArchitect.pdf
+- Beck, K. y Andres, C. (2004). *Extreme Programming Explained* (2ª ed.), Addison-Wesley, cap. 7, "Primary Practices", práctica "Incremental Design".
+- Nygard, M. (2011). "Documenting Architecture Decisions". https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions.html
 
 --------
 
@@ -456,7 +353,7 @@ La factibilidad es el mecanismo por el cual una alternativa deja de ser una inte
 
 ### El modo de uso determina el detalle
 
-Antes de seleccionar una notación corresponde decidir para qué se la va a utilizar, porque de ese uso depende cuánto detalle resulta razonable. Fowler distingue tres modos.
+Antes de seleccionar una notación corresponde, hay que decidir para qué se la va a utilizar, porque de ese uso depende cuánto detalle resulta razonable.
 
 | Modo | Finalidad | Detalle requerido |
 |---|---|---|
@@ -464,21 +361,134 @@ Antes de seleccionar una notación corresponde decidir para qué se la va a util
 | **Plano** | Especificar antes de construir. Una persona modela y otra implementa | Alto, y exige mantenimiento |
 | **Lenguaje de programación** | Generar el sistema desde el modelo | Completo |
 
->Los diagramas de UML que dibujo suelen ser bocetos. Uso bocetos para ayudarme a comunicar ideas y alternativas sobre lo que estoy por hacer. [...] Lo esencial de un boceto es la selectividad.
+>Los diagramas de UML que dibujo suelen ser bocetos. Uso bocetos para ayudarme a comunicar ideas y alternativas sobre lo que estoy por hacer.
 >
->[UmlAsSketch - Martin Fowler](https://martinfowler.com/bliki/UmlAsSketch.html)
+>[Martin Fowler](https://martinfowler.com/bliki/UmlAsSketch.html)
 
-En un proyecto de estas dimensiones el modo pertinente es el de boceto, y conviene sostenerlo de manera explícita. Un diagrama que debe mantenerse sincronizado manualmente con el código se desactualiza en pocos incrementos, y a partir de ese momento desinforma, lo cual es peor que su inexistencia. El criterio operativo que se deriva es directo: **se modela aquello que todavía no está decidido**. Un diagrama que representa algo que el equipo ya sabe cómo va a construir no agrega información, agrega trabajo.
+Un diagrama que debe mantenerse sincronizado manualmente con el código se desactualiza en pocos incrementos, y a partir de ese momento desinforma, lo cual es peor que su inexistencia. El criterio operativo que se deriva es directo: **se modela aquello que todavía no está decidido**. Un diagrama que representa algo que el equipo ya sabe cómo va a construir no agrega información, agrega trabajo.
 
 ### El caso de uso como descripción de comportamiento
 
 El caso de uso describe cómo un actor alcanza un objetivo mediante el sistema, incluidos los recorridos en los que no lo alcanza. Su valor no reside en el diagrama sino en el texto, y dentro del texto, en la sección de extensiones: es la que obliga a formular qué ocurre cuando el recorrido principal se interrumpe.
 
-La relación entre caso de uso e historia de usuario está tratada en [unidad-1/requisitos.md](../unidad-1/requisitos.md). Lo que interesa en el plano del diseño es la consecuencia: la historia enuncia qué valor se entrega, mientras que el caso de uso enuncia qué secuencia de interacciones lo produce, y esa secuencia constituye el insumo directo tanto del diagrama de secuencia como de la distribución de responsabilidades entre componentes.
-
-Cockburn propone el formato breve —dos o tres líneas por caso— como punto de partida, y reserva el formato completo para aquellos casos en los que el detalle modifica una decisión. En un proyecto con presupuesto acotado, redactar en formato completo la totalidad de los casos consume horas que se restan de la construcción; redactar en formato completo los dos de mayor riesgo constituye una inversión.
-
 El diagrama de casos de uso, por su parte, no describe comportamiento: enumera objetivos y delimita el sistema. Funciona como índice, y en esa función resulta útil. Dos criterios evitan discusiones recurrentes: la caja del diagrama es la representación literal del límite del sistema establecido en la unidad anterior, de modo que todo elemento ubicado dentro de ella debe ser construido por el equipo; y las relaciones de inclusión y extensión se emplean poco, porque descomponer casos de uso para reutilizar tres pasos produce diagramas que aparentan diseño sin serlo.
+
+
+> Definición: Todas las formas de utilizar un sistema para alcanzar un objetivo concreto para un usuario específico.
+>
+> Un caso de uso es:
+>
+> - Una secuencia de acciones que realiza un sistema y que produce un resultado observable de valor para un usuario específico.
+> - Ese comportamiento específico de un sistema que participa en una colaboración con un usuario para ofrecerle algo de valor.
+> - La unidad mínima de actividad que proporciona un resultado significativo para el usuario.
+> - El contexto para un conjunto de requisitos relacionados.
+>
+> [Ivar Jacobson](https://www.ivarjacobson.com/publications/white-papers-articles/use-case-definition)
+
+Hay dos pruebas simples para decidir si algo es un caso de uso:
+
+- La prueba del objetivo: si el tutor hace sólo eso y se va, ¿logró algo que le importa? Registrar asistencia y Corregir asistencia pasan la prueba; Marcar a todos presentes no.
+- La prueba del tamaño: un caso de uso tiene varios pasos. Si describirlo lleva un solo paso, probablemente es un paso de otro caso de uso.
+
+#### **Caso de uso: Registrar asistencia**
+
+###### Diagrama de caso de uso
+
+```text
+                    ┌──────────────────────────────────────────────┐
+                    │       Sistema de seguimiento académico       │
+                    │                                              │
+       ○            │          ╭───────────────────────╮           │
+      ─┼─ ──────────┼─────────►│  Registrar asistencia │           │
+      / \           │          ╰───────────────────────╯           │
+     Tutor          │                                              │
+                    └──────────────────────────────────────────────┘
+```
+
+###### Descripción del caso de uso
+
+| | |
+|---|---|
+| **Actor principal** | Tutor |
+| **Objetivo** | Dejar registrado quién estuvo y quién no en una clase |
+| **Precondición** | El tutor está identificado y la comisión está a su cargo |
+| **Garantía de éxito** | Queda registrada una asistencia por cada estudiante de la nómina en esa clase |
+| **Garantía mínima** | Si el tutor no confirma, no queda registrada ninguna asistencia de esa clase |
+
+*Escenario principal*
+
+1. El tutor elige la comisión y la fecha de la clase.
+2. El sistema muestra la nómina de la comisión, con todos los estudiantes como presentes.
+3. El tutor marca a los estudiantes ausentes.
+4. El tutor confirma la asistencia.
+5. El sistema registra la asistencia de cada estudiante e informa cuántos presentes y ausentes quedaron.
+
+*Extensiones*
+
+- **1a.** La fecha no corresponde a una clase del calendario de la comisión: el sistema lo informa y el tutor elige otra fecha.
+- **1b.** La asistencia de esa clase ya fue registrada: el sistema lo informa y ofrece corregirla, lo que nos lleva al caso de uso *Corregir asistencia*.
+- **2a.** Un estudiante se incorporó a la comisión después de esa fecha: el sistema no lo incluye en la nómina.
+- **3a.** El tutor marcó a un estudiante como ausente por error: lo vuelve a marcar como presente antes de confirmar.
+- **4a.** El tutor sale sin confirmar: el sistema no registra nada, y la próxima vez que abra la clase la encuentra sin asistencia.
+
+*Preguntas abiertas*
+
+- ¿La llegada tarde cuenta como presente, como ausente o es una tercera condición?
+- ¿Una inasistencia justificada se registra acá o en otro momento? ¿Cuenta para el riesgo?
+- ¿Qué pasa con una clase que no se dictó? ¿Se marca de alguna forma para que no cuente en el porcentaje?
+
+El escenario principal es casi obvio, y cualquiera lo hubiera escrito igual. Lo que no es obvio son las extensiones:
+- qué pasa si se confirma dos veces (1b),
+- qué pasa con quien se incorporó tarde (2a) o
+- qué pasa si el tutor cierra la pantalla a mitad de camino (4a).
+
+Son preguntas que la historia de usuario no formula, y que si no respondemos acá las va a responder quien programe. Las preguntas abiertas son las que todavía no sabemos responder: **no las inventamos, las llevamos a la próxima conversación con la clienta**.
+
+Si queremos ver el recorrido completo de un vistazo, con todas sus bifurcaciones, lo podemos graficar en un **diagrama de actividad**. Cada acción es un paso de la descripción, cada rombo es una decisión que abre una extensión, y los carriles muestran quién hace cada cosa: el tutor o el sistema.
+
+###### Diagrama de actividad
+
+```text
+                TUTOR                   ┆                  SISTEMA
+                                        ┆
+                  ●                     ┆
+                  │                     ┆
+      ┌───────────▼───────────┐         ┆
+      │ Elegir la comisión y  │◄──┐     ┆
+      │ la fecha de la clase  │   │     ┆
+      └───────────┬───────────┘   │     ┆
+                  └───────────────┼─────┼─────────────────────┐
+                                  │     ┆                     ▼
+                                  └─────┼── [no] informa ─────◇ ¿Es una clase del calendario?
+                                        ┆                     │ [sí]
+                                        ┆                     ▼
+                                        ┆ ¿Ya fue registrada? ◇─[sí]─► Ofrecer corregirla ─► ◉
+                                        ┆                     │ [no]
+                                        ┆        ┌────────────▼────────────┐
+                                        ┆        │ Mostrar la nómina, con  │
+                                        ┆        │ todos como presentes    │
+                                        ┆        └────────────┬────────────┘
+      ┌───────────────────────┐         ┆                     │
+   ┌─►│ Marcar un ausente     │◄────────┼─────────────────────┘
+   │  └───────────┬───────────┘         ┆
+   │              ▼                     ┆
+   └────[sí]──────◇ ¿Otro ausente, o    ┆
+                  │ una corrección?     ┆
+                  │ [no]                ┆
+                  ▼                     ┆
+   ◉◄──[no]───────◇ ¿Confirma?          ┆
+(no se registra   │ [sí]                ┆
+ nada)            └─────────────────────┼─────────────────────┐
+                                        ┆                     ▼
+                                        ┆        ┌─────────────────────────┐
+                                        ┆        │ Registrar la asistencia │
+                                        ┆        │ e informar los totales  │
+                                        ┆        └────────────┬────────────┘
+                                        ┆                     ▼
+                                        ┆                     ◉
+```
+
+Fijémonos en que el diagrama no agrega nada que no esté en la descripción: lo que hace es mostrarlo de otra forma. Se ve de inmediato que hay tres maneras de terminar (con la asistencia registrada, derivando a la corrección o saliendo sin guardar) y que hay dos vueltas atrás: elegir otra fecha cuando la clase no existe y seguir marcando mientras haya ausentes o correcciones. Para un caso de uso con pocas alternativas, como este, la descripción alcanza. El diagrama de actividad empieza a valer la pena cuando las bifurcaciones son tantas que el texto se vuelve difícil de seguir.
 
 ### Diagrama de secuencia del sistema
 
@@ -486,60 +496,261 @@ El diagrama de secuencia del sistema toma un escenario de un caso de uso y repre
 
 Su función es precisa y temprana: **fijar la interfaz entre el sistema y su entorno**. De allí se obtienen las operaciones que el sistema debe ofrecer, que son las que posteriormente se distribuyen entre componentes.
 
+Este es el diagrama del escenario principal de *Registrar asistencia*:
+
 ```text
-  Tutor                          :Sistema
-    │                                │
-    │──── abrirClase(fecha) ────────►│
-    │◄─── nómina de 30 estudiantes ──│
-    │                                │
-    │──── marcarAusente(legajo) ────►│   (una vez por cada ausente)
-    │                                │
-    │──── confirmarAsistencia() ────►│
-    │◄─── confirmación ──────────────│
-    │                                │
+    Tutor                                    :Sistema
+      │                                          │
+      │─── abrirClase(comisión, fecha) ─────────►│   paso 1
+      │◄── nómina, todos como presentes ─────────│   paso 2
+      │                                          │
+   ┌──┼── loop [por cada ausente] ───────────────┼──┐
+   │  │─── marcarAusente(legajo) ───────────────►│  │   paso 3
+   └──┼──────────────────────────────────────────┼──┘
+      │                                          │
+      │─── confirmarAsistencia() ───────────────►│   paso 4
+      │◄── 26 presentes, 4 ausentes ─────────────│   paso 5
+      │                                          │
 ```
 
-Un diagrama de esta extensión ya impone una decisión que la historia de usuario correspondiente no contenía: que se registran los ausentes y no los presentes, porque son menos. Es una decisión de diseño con efecto directo sobre la factibilidad operativa, y ejemplifica por qué el modelado temprano produce información y no sólo documentación.
+Si lo comparamos con la descripción, cada paso del escenario principal se convirtió en un mensaje o en una respuesta. Lo que el diagrama no muestra son las extensiones: un diagrama de secuencia del sistema dibuja **un** escenario, y cada extensión que quisiéramos ver sería otro diagrama. Por eso no reemplaza a la descripción, sino que la complementa.
 
-### Diagrama de secuencia de diseño
+Lo que sí nos da el diagrama es la lista de operaciones que el sistema tiene que ofrecer: `abrirClase`, `marcarAusente` y `confirmarAsistencia`. Esa lista es la interfaz del sistema con el tutor, y es lo que después vamos a repartir entre componentes.
 
-El segundo diagrama abre la caja: representa los objetos o componentes internos y los mensajes que intercambian. Es el instrumento donde el acoplamiento se vuelve visible, porque el acoplamiento consiste precisamente en eso, en quién necesita comunicarse con quién para que un comportamiento ocurra.
+Tanto la descripción como el diagrama ya imponen una decisión que la historia de usuario no contenía: que se marcan los ausentes y no los presentes, porque son menos. No es un detalle de pantalla, es una decisión con efecto directo sobre la factibilidad operativa: cuanto menos le cueste al tutor registrar, más probable es que lo haga. Por eso modelar temprano produce información, y no sólo documentación.
 
-Es el diagrama de mayor rendimiento de esta unidad y el que menos se construye. Una sola hoja permite detectar los dos defectos de diseño más frecuentes en proyectos de esta escala: un objeto que se comunica con todos los demás —el controlador que concentra el comportamiento, tratado más adelante como defecto de cohesión— y una cadena de mensajes de varios saltos destinada a obtener un dato, que es acoplamiento estructural encubierto.
+### Diagrama de clases
 
-### Contratos de operación
+Entre los diagramas y el código nos falta un paso: decidir qué clases vamos a tener y qué sabe hacer cada una. Eso es lo que muestra el **diagrama de clases**.
 
-Un contrato de operación describe qué cambia en el estado del sistema cuando una operación se ejecuta, en términos de precondiciones y poscondiciones, sin comprometer una implementación.
+Las clases del dominio no las inventamos ahora: son los mismos conceptos del modelo de dominio, con los mismos nombres. Lo que cambia es que ahora les asignamos responsabilidades. En el modelo de dominio, *Comisión* era un concepto relacionado con *Clase* y con *Estudiante*; en el diagrama de clases, `Comision` sabe responder cuál es la clase de una fecha y quiénes forman la nómina en ese momento. Y aparece una clase que no está en el dominio: `RegistrarAsistencia`, que es el caso de uso.
 
-Meyer lo formaliza como diseño por contrato: la precondición constituye la obligación de quien invoca y el beneficio de quien ejecuta; la poscondición invierte los papeles; el invariante expresa lo que se mantiene verdadero en todo momento. La idea de fondo es que cada módulo declare qué exige y qué garantiza, y que esa declaración forme parte de su interfaz y no de su documentación.
+```text
+┌──────────────────────────────────────────────┐
+│             RegistrarAsistencia              │───────────────────────────────────────────────┐
+├──────────────────────────────────────────────┤                                               │
+│ + AbrirClase(comision, fecha): Nomina        │────────────────────────────────────────┐      │
+│ + MarcarAusente(legajo)                      │                                        │      │
+│ + MarcarPresente(legajo)                     │  «crea»  ┌──────────────────────┐      │      │
+│ + ConfirmarAsistencia(): ResumenDeAsistencia │╌╌╌╌╌╌╌╌╌►│ ResumenDeAsistencia  │      │      │
+└──────────────────────────────────────────────┘          ├──────────────────────┤      │      │
+                │                   │                     │ + Presentes: int     │      │      │
+                │                   │                     │ + Ausentes: int      │      │      │
+                │                   │                     └──────────────────────┘      │      │
+                │ tutor             │                                                   │      │
+                │                   │                                                   │      │
+                │                   │                                                   │      │
+                ▼ 1                 │                                                   │      │
+┌────────────────────────────────┐  │       ┌────────────────────────────┐              │      │
+│             Tutor              │  │       │          Comision          │              │      │
+├────────────────────────────────┤  │a cargo├────────────────────────────┤              │      │
+│ + TieneACargo(comision): bool  │──┼──────►│ + ClaseDel(fecha): Clase   │              │      │
+└────────────────────────────────┘  │  1..* │ + NominaAl(fecha): Nomina  │              │      │
+                                    │       └────────────────────────────┘              │      │
+                              clase │           ◆                     │        ausentes │      │
+                       calendario   │           │                     │ estudiantes     │      │
+                      ┌─────────────┼───────────┘                     │                 │      │
+                      ▼ 0..*        ▼ 0..1                            ▼ 0..*            ▼ 0..* │
+┌──────────────────────────────────────────┐      ┌────────────────────────────────────────┐   │
+│                  Clase                   │      │               Estudiante               │   │
+├──────────────────────────────────────────┤      ├────────────────────────────────────────┤   │
+│ + Fecha: DateOnly                        │    1 │ + Legajo: string                       │   │
+├──────────────────────────────────────────┤   ┌─►│ + FechaDeIncorporacion: DateOnly       │   │
+│ + TieneAsistenciaRegistrada(): bool      │   │  ├────────────────────────────────────────┤   │
+│ + RegistrarAsistencia(nomina, ausentes)  │   │  │ + EstabaIncorporadoEl(fecha): bool     │   │
+└──────────────────────────────────────────┘   │  └────────────────────────────────────────┘   │
+                    ◆                          │                      ▲                        │
+                    ▼ 0..*                     │                      │ estudiantes            │
+    ┌──────────────────────────────┐           │                      │ 0..*                   │
+    │          Asistencia          │───────────┘                      │                        │
+    └──────────────────────────────┘                                  │                        │
+                    │                             ┌────────────────────────────────────────┐   │ nomina
+                    ▼ 1                           │                 Nomina                 │   │
+    ┌──────────────────────────────┐              ├────────────────────────────────────────┤   │
+    │        «enumeration»         │              │ + Cantidad: int                        │◄──┘
+    │          Condicion           │              ├────────────────────────────────────────┤ 0..1
+    ├──────────────────────────────┤              │ + BuscarPorLegajo(legajo): Estudiante  │
+    │ Presente                     │              └────────────────────────────────────────┘
+    │ Ausente                      │
+    └──────────────────────────────┘
+```
 
-No se trata de un aparato teórico distante. Es el mismo contenido que los criterios de aceptación en formato Dado/Cuando/Entonces, formulado para quien diseña en lugar de para quien recibe.
+Para leerlo:
+- cada caja tiene tres compartimentos: el nombre, los atributos y los métodos. Cuando alguno no aporta nada, se omite;
+- `+` es público y `-` es privado;
+- la flecha indica quién conoce a quién: `Asistencia` conoce a su `Estudiante`, pero `Estudiante` no conoce sus asistencias;
+- el rombo relleno (◆) es una **composición**: las asistencias pertenecen a una clase y no existen sin ella, y las clases del calendario pertenecen a una comisión;
+- los números en los extremos son las multiplicidades: una clase registra de 0 a muchas asistencias (`0..*`), y cada asistencia es de exactamente un estudiante (`1`);
+- la flecha punteada con «crea» es una dependencia: `RegistrarAsistencia` crea el resumen, pero no lo guarda.
 
-| | Formulación para el cliente | Formulación para el diseño |
-|---|---|---|
-| Estructura | Dado / Cuando / Entonces | Precondición / Operación / Poscondición |
-| Ejemplo | Dado que la comisión tiene 30 estudiantes cargados, cuando se marcan 4 ausentes y se confirma, entonces el panel refleja las 4 inasistencias | Pre: la clase existe y no está confirmada. Post: quedan registradas 4 ausencias y la clase queda confirmada |
+Las flechas que salen de `RegistrarAsistencia` son lo que el caso de uso necesita recordar mientras dura: el `tutor` que lo ejecuta, la `clase` que abrió, la `nomina` que mostró y los `ausentes` que se fueron marcando. En el código, cada una de esas flechas es un atributo privado con el mismo nombre (`_tutor`, `_clase`, `_nomina`, `_ausentes`). La multiplicidad `0..1` de `clase` y `nomina` dice algo del recorrido: antes de `AbrirClase` todavía no hay ninguna.
 
-Redactar el contrato antes de construir la operación produce un efecto observable: aparecen las precondiciones que no habían sido consideradas. Qué ocurre si se confirma dos veces la misma clase es una pregunta que el contrato obliga a responder y que la historia de usuario no formula.
+Fijémonos en que la clase del caso de uso tiene los métodos del diagrama de secuencia, y las clases del dominio tienen los métodos que esas operaciones necesitan. `AbrirClase` no busca la clase recorriendo el calendario: se lo pregunta a `Comision`. `ConfirmarAsistencia` no crea las asistencias una por una: se lo pide a `Clase`. El caso de uso coordina, y cada concepto del dominio hace lo que le corresponde.
 
-### Aplicación al proyecto guía
+### Del caso de uso al código
 
-El criterio de selección de qué modelar y qué no, aplicado al dominio:
+>Usen el modelo como columna vertebral de un lenguaje. Comprometan al equipo a ejercitar ese lenguaje sin excepciones en toda comunicación dentro del equipo y en el código.
+>
+>Domain-Driven Design - Eric Evans, cap. 2, "Ubiquitous Language"
 
-| Se modela | Fundamento |
+Con el diagrama de clases a la vista, veamos cómo queda *Registrar asistencia* en C#. No nos interesa acá cómo se guardan los datos ni de dónde se obtienen: nos interesa que el código hable el mismo idioma que el caso de uso. Si la clienta leyera los nombres de las clases y de los métodos, debería reconocer su trabajo.
+
+El caso de uso se convierte en una clase con su mismo nombre, que coordina los pasos. Cada operación del diagrama de secuencia es un método, y cada extensión que interrumpe el recorrido es una excepción con nombre propio.
+
+```csharp
+public class RegistrarAsistencia
+{
+    private readonly Tutor _tutor;
+    private Clase _clase;
+    private Nomina _nomina;
+    private readonly List<Estudiante> _ausentes = new List<Estudiante>();
+
+    public RegistrarAsistencia(Tutor tutor)
+    {
+        _tutor = tutor;
+    }
+
+    // Pasos 1 y 2
+    public Nomina AbrirClase(Comision comision, DateOnly fecha)
+    {
+        if (!_tutor.TieneACargo(comision))
+            throw new ComisionAjenaAlTutor(comision);           // Precondición
+
+        _clase = comision.ClaseDel(fecha);
+
+        if (_clase == null)
+            throw new ClaseFueraDelCalendario(comision, fecha);  // 1a
+
+        if (_clase.TieneAsistenciaRegistrada())
+            throw new AsistenciaYaRegistrada(_clase);            // 1b
+
+        _nomina = comision.NominaAl(fecha);                      // 2a
+        return _nomina;
+    }
+
+    // Paso 3
+    public void MarcarAusente(string legajo)
+    {
+        Estudiante estudiante = _nomina.BuscarPorLegajo(legajo);
+
+        if (!_ausentes.Contains(estudiante))
+            _ausentes.Add(estudiante);
+    }
+
+    // 3a
+    public void MarcarPresente(string legajo)
+    {
+        _ausentes.Remove(_nomina.BuscarPorLegajo(legajo));
+    }
+
+    // Pasos 4 y 5
+    public ResumenDeAsistencia ConfirmarAsistencia()
+    {
+        _clase.RegistrarAsistencia(_nomina, _ausentes);
+
+        return new ResumenDeAsistencia(
+            presentes: _nomina.Cantidad - _ausentes.Count,
+            ausentes: _ausentes.Count);
+    }
+}
+```
+
+La clase del caso de uso coordina, pero no decide las reglas del dominio. Qué clases tiene el calendario, quién forma parte de la nómina en una fecha o cómo se registra la asistencia son responsabilidades de los conceptos del modelo de dominio:
+
+```csharp
+public class Comision
+{
+    private readonly List<Clase> _calendario;
+    private readonly List<Estudiante> _estudiantes;
+
+    public Clase ClaseDel(DateOnly fecha)
+    {
+        return _calendario.FirstOrDefault(clase => clase.Fecha == fecha);
+    }
+
+    public Nomina NominaAl(DateOnly fecha)
+    {
+        return new Nomina(_estudiantes.Where(estudiante => estudiante.EstabaIncorporadoEl(fecha)));
+    }
+}
+
+public class Clase
+{
+    private readonly List<Asistencia> _asistencias = new List<Asistencia>();
+
+    public DateOnly Fecha { get; }
+
+    public bool TieneAsistenciaRegistrada()
+    {
+        return _asistencias.Any();
+    }
+
+    public void RegistrarAsistencia(Nomina nomina, List<Estudiante> ausentes)
+    {
+        foreach (Estudiante estudiante in nomina.Estudiantes)
+        {
+            Condicion condicion = ausentes.Contains(estudiante) ? Condicion.Ausente : Condicion.Presente;
+            _asistencias.Add(new Asistencia(estudiante, condicion));
+        }
+    }
+}
+
+public class Estudiante
+{
+    public string Legajo { get; }
+    public DateOnly FechaDeIncorporacion { get; }
+
+    public bool EstabaIncorporadoEl(DateOnly fecha)
+    {
+        return FechaDeIncorporacion <= fecha;
+    }
+}
+
+public class Asistencia
+{
+    public Estudiante Estudiante { get; }
+    public Condicion Condicion { get; }
+
+    public Asistencia(Estudiante estudiante, Condicion condicion)
+    {
+        Estudiante = estudiante;
+        Condicion = condicion;
+    }
+}
+
+public enum Condicion
+{
+    Presente,
+    Ausente
+}
+```
+
+Si ponemos lado a lado el caso de uso y el código, cada elemento tiene su correspondencia:
+
+| En el caso de uso | En el código |
 |---|---|
-| Diagrama de secuencia del sistema de *registrar la asistencia de una clase* | Es la operación con mayor riesgo operativo: determina cuántas interacciones cuesta la tarea que se repite en cada clase |
-| Diagrama de secuencia de diseño de *calcular el riesgo de la comisión* | Es donde se decide si el cálculo constituye un componente aislado o queda distribuido en la consulta del panel |
-| Contrato de *confirmar asistencia* | Presenta precondiciones no evidentes: clase inexistente, clase ya confirmada, estudiante incorporado con posterioridad a la fecha |
-| **No se modelan** el alta de estudiante ni el listado | Son operaciones conocidas, sin decisiones abiertas. Modelarlas es ceremonia |
+| Caso de uso *Registrar asistencia* | Clase `RegistrarAsistencia` |
+| Actor principal: Tutor | `Tutor`, que recibe el caso de uso al crearse |
+| Precondición: la comisión está a su cargo | `_tutor.TieneACargo(comision)` y `ComisionAjenaAlTutor` |
+| Paso 1: elige la comisión y la fecha | `AbrirClase(comision, fecha)` |
+| 1a: la fecha no es una clase del calendario | `comision.ClaseDel(fecha)` y `ClaseFueraDelCalendario` |
+| 1b: la asistencia ya fue registrada | `clase.TieneAsistenciaRegistrada()` y `AsistenciaYaRegistrada` |
+| Paso 2 y 2a: la nómina, sin los incorporados después | `comision.NominaAl(fecha)` y `estudiante.EstabaIncorporadoEl(fecha)` |
+| Paso 3: marca a los ausentes | `MarcarAusente(legajo)` |
+| 3a: lo vuelve a marcar como presente | `MarcarPresente(legajo)` |
+| Pasos 4 y 5: confirma, y el sistema registra e informa | `ConfirmarAsistencia()`, `clase.RegistrarAsistencia(...)` y `ResumenDeAsistencia` |
+| 4a: sale sin confirmar | No hay código: si nadie llama a `ConfirmarAsistencia()`, no se registró nada |
+| Condición: presente o ausente | `enum Condicion { Presente, Ausente }` |
 
-### Anti-patrones frecuentes
+Hay varias cosas para notar.
 
-- **Modelado exhaustivo previo a la construcción**: redactar todos los casos de uso en formato completo consume el presupuesto de los primeros incrementos sin producir nada verificable.
-- **Confundir el diagrama de casos de uso con el diseño**: el diagrama enumera objetivos; no describe comportamiento ni estructura.
-- **Diagramas de secuencia del sistema con elementos internos**: si aparece el almacenamiento, el sistema dejó de tratarse como caja negra y el diagrama perdió su función.
-- **Modelar únicamente el recorrido principal**: las extensiones son la parte del análisis que descubre trabajo no previsto.
-- **Sostener diagramas sincronizados manualmente con el código**: se desactualizan y a partir de ese punto inducen error.
+La garantía mínima no se programa, se diseña. Como las asistencias recién se registran en `ConfirmarAsistencia()`, un tutor que sale a mitad de camino no deja nada a medias. La extensión 4a queda resuelta por la forma en que repartimos los pasos, sin una sola línea de código dedicada a ella.
+
+No aparecen `AsistenciaService`, `AsistenciaManager` ni `AsistenciaHelper`. Esos nombres no existen en el vocabulario de la clienta: nadie en el instituto dice "hay que llamar al manager de asistencias". Cuando un nombre del código no se puede pronunciar en una reunión con quien conoce el dominio, es una señal de que estamos modelando la aplicación y no el problema.
+
+El nombre `Clase` es incómodo en un lenguaje de programación, donde "clase" ya significa otra cosa. La tentación es cambiarlo por `Sesion` o `Encuentro`, pero la clienta dice "clase", y en cuanto el código diga otra cosa vamos a necesitar traducir en cada conversación. El lenguaje ubicuo lo sostiene el equipo, no el cliente.
+
+Y las preguntas abiertas también se ven en el código. `Condicion` tiene dos valores porque todavía no sabemos si la llegada tarde es una tercera condición. Cuando la clienta responda, el cambio va a tener un lugar claro donde hacerse, y va a tener el mismo nombre en la conversación y en el código.
 
 ### Síntesis
 
