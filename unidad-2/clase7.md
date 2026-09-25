@@ -2,6 +2,8 @@
 
 Sprint 2:
 - Revisión de las historias creadas
+- Contenido de hoy
+- Actividad SOLID
 
 ### Tarea para la siguiente 
 clase (sprint 3):
