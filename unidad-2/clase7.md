@@ -9,4 +9,4 @@ Sprint 2:
 clase (sprint 3):
 - Realizar lo estipulado en sprint 3 en el [calendario](../calendario.md)
 - Leer el fragmento del libro [Clean Codigo de Robert C. Martin](/unidad-2/CodigoLimpio-NombresConSentido.pdf)
-- [Material de repaso de Programación Orientada a Objetos](https://github.com/emigallo-edu/oop)
+- [Material de repaso de Programación Orientada a Objetos](https://github.com/emigallo-edu/oop/blob/main/Presentaciones/Content.md)
