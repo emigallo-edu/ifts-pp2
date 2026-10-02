@@ -45,6 +45,8 @@ Dicho de forma más simple: donde el código espera un objeto de la clase base, 
 
 *Cómo se detecta:* código que pregunta `if (objeto is SubclaseTal)` antes de usarlo, métodos sobrescritos que lanzan `NotSupportedException`, o métodos sobrescritos que devuelven algo distinto de lo que la clase base promete, aunque no fallen.
 
+[El problema del ornitorrinco](../ornitorrinco.md)
+
 ##### 4. I — Segregación de interfaces (Interface Segregation)
 
 >Los clientes no deberían estar obligados a depender de interfaces que no usan.
