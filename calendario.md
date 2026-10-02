@@ -16,7 +16,6 @@
 - Iteración sobre las historias ya creadas
 - Creación de H5, H6 y H8
 - Modelo de dominio
-- Modelo de arquitectura
 - Desarrollo de 1 historia de usuario
 - Creación de, al menos, 2 pruebas unitarias sobre la historia de usuario desarrollada
 
@@ -34,6 +33,7 @@
 - Creación de H7, H10, H11
 - Desarrollo de 3 historias de usuario
 - Creación de, al menos, 2 pruebas unitarias sobre las historias de usuario desarrolladas
+- Modelo de arquitectura (pensando en como va a evolucionar el sistema)
 
 ### Sprint 5 - Evaluación 16/10
 
@@ -56,6 +56,7 @@
 
 - Creación de, al menos, 2 pruebas de aceptación
 - Creación de, al menos, 2 pruebas de integración
+- Modelo de arquitectura actual
 
 ### Sprint 9 - Evaluación final 13/11
 

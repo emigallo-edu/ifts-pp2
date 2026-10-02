@@ -4,12 +4,17 @@ using Ejercicio2Inicial = App.Ejercicio2.Inicial;
 using Ejercicio2Mejorado = App.Ejercicio2.Mejorado;
 using Ejercicio3Inicial = App.Ejercicio3.Inicial;
 using Ejercicio3Mejorado = App.Ejercicio3.Mejorado;
+using App;
 
 public class Progra
 {
     static void Main(string[] args)
     {
-
+        Rectangulo figura = new Cuadrado();
+        figura.SetearAncho(3);
+        figura.SetearAlto(2);
+        string resultado = figura.CalcularArea();
+        // Assert(resultado==6);
     }
 
     private void EjecutarEjercicio1Inicial()
@@ -32,7 +37,7 @@ public class Progra
             Console.WriteLine($"Falla en ejecución: {ex.Message}");
         }
     }
-    
+
     private void EjecutarEjercicio1Mejorado()
     {
         const string mensaje = "Mañana no hay clase.";

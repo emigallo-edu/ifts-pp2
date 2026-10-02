@@ -40,13 +40,12 @@
     - [Síntesis](#síntesis-2)
     - [Fuentes](#fuentes-2)
 - [Modelado de datos: entidad-relación y modelo relacional](#modelado-de-datos-entidad-relación-y-modelo-relacional)
-    - [Modelo de dominio y modelo de datos](#modelo-de-dominio-y-modelo-de-datos)
-    - [El modelo entidad-relación](#el-modelo-entidad-relación)
-    - [Derivación al modelo relacional](#derivación-al-modelo-relacional)
+    - [Antes de comenzar...](#antes-de-comenzar-1)
+    - [Del modelo de dominio al MER](#del-modelo-de-dominio-al-mer)
+    - [Del MER al DER: el modelo relacional](#del-mer-al-der-el-modelo-relacional)
     - [Normalización](#normalización)
     - [El dato que cambia con el tiempo](#el-dato-que-cambia-con-el-tiempo)
     - [Aplicación al proyecto guía](#aplicación-al-proyecto-guía-2)
-    - [Anti-patrones frecuentes](#anti-patrones-frecuentes-1)
     - [Síntesis](#síntesis-3)
     - [Fuentes](#fuentes-3)
 - [Diseño de procesos, componentes e interfaces](#diseño-de-procesos-componentes-e-interfaces)
@@ -766,144 +765,187 @@ El modelado funcional no documenta: decide. Su rendimiento se concentra en los p
 
 --------
 
-# Modelado de datos: entidad-relación y modelo relacional
+# Modelado de datos
 
-### Modelo de dominio y modelo de datos
+El modelo de dominio nos dijo qué existe en el problema y cómo se relaciona, en el vocabulario del cliente. Ahora tenemos que decidir qué de todo eso vamos a **recordar**, y cómo. Para llegar a la base de datos vamos a recorrer tres pasos, y cada uno responde una pregunta distinta:
 
-El modelo de dominio, tratado en el primer tema de esta unidad, representa los conceptos del problema y sus relaciones en el vocabulario del cliente, y no describe almacenamiento. El modelo de datos describe cómo esos conceptos se persisten, y es el artefacto que se deriva de aquél.
-
-La derivación no es automática y conviene recorrerla concepto por concepto: qué clase conceptual se convierte en tabla, cuál se parte en dos, cuál desaparece por ser un valor derivado y qué aparece en el esquema que no existía en el modelo del problema, por pertenecer a la solución.
-
-En un proyecto de esta escala ambos modelos terminarán pareciéndose considerablemente, y eso no constituye un defecto. Lo que sí constituye un defecto es no saber cuál de los dos se está construyendo, porque de ello depende con quién se lo valida.
-
-### El modelo entidad-relación
-
-Chen propone el modelo entidad-relación en 1976 con un objetivo declarado: incorporar información semántica del mundo real al modelo de datos, situándose en un nivel por encima del modelo relacional, y proveer una notación diagramática que funcione como herramienta de diseño de bases de datos.
-
-Sus tres construcciones:
-
-| Construcción | Definición | Ejemplo |
+| Modelo | Pregunta que responde | Con quién lo validamos |
 |---|---|---|
-| **Entidad** | Objeto del mundo real sobre el cual se desea registrar información | Estudiante, Comisión, Clase |
-| **Atributo** | Propiedad de una entidad | Legajo, apellido, fecha |
-| **Relación** | Asociación entre entidades | Un estudiante *pertenece a* una comisión |
+| **Modelo de dominio** | ¿Qué conceptos existen en el problema y cómo se relacionan? | Con el cliente |
+| **MER** (modelo entidad-relación) | ¿Qué necesitamos recordar, cómo distinguimos cada cosa de las demás y cuántas se relacionan con cuántas? | Con el equipo, y con el cliente para las cardinalidades |
+| **DER** (diagrama del modelo relacional) | ¿En qué tablas, columnas y claves lo guardamos? | Con el equipo y con el motor |
 
-La decisión que con mayor frecuencia se resuelve mal es la **cardinalidad**. Uno a uno, uno a muchos, muchos a muchos. Se resuelve consultando al cliente y nunca deduciéndola: si un estudiante puede pertenecer a dos comisiones es una pregunta de relevamiento, no de diseño, y la respuesta modifica el modelo completo.
+En la bibliografía las siglas MER y DER no siempre se usan igual. En esta materia llamamos **MER** al modelo conceptual, con entidades, atributos y relaciones, y **DER** al diagrama de tablas que derivamos de él, que es el que termina escrito en SQL.
 
-Cuando una relación de muchos a muchos posee atributos propios, la relación es en realidad una entidad. Es el caso central del dominio de este proyecto: la asistencia no es una asociación entre estudiantes y clases, sino un hecho con fecha y estado que vincula a ambos y que admite corrección.
+Lo importante es que ningún paso inventa conceptos. Cada uno toma lo que dejó el anterior y le agrega **una sola clase de decisión**: el MER agrega la identidad y la cardinalidad, el DER agrega la forma de guardarlo. Si en el DER aparece una tabla que no podemos rastrear hasta un concepto del dominio, o hasta una necesidad concreta de la solución, algo se nos coló en el camino.
 
-### Derivación al modelo relacional
+### Del modelo de dominio al MER
 
-El modelo relacional de Codd es anterior al entidad-relación y es el que los motores implementan. Su aporte consiste en separar la forma en que los datos se almacenan de la forma en que se consultan, y en sostener toda la estructura sobre una única construcción, la relación, sobre la cual operan un álgebra y un cálculo.
+Peter Chen propuso el modelo entidad-relación con un objetivo claro: que el modelo de datos conserve el significado del mundo real, y no sólo la forma en que se almacena. Por eso el MER se parece tanto al modelo de dominio: las construcciones son casi las mismas.
 
->Los futuros usuarios de los grandes bancos de datos deben protegerse de tener que saber cómo están organizados los datos en la máquina.
->
->A Relational Model of Data for Large Shared Data Banks - Edgar F. Codd
-
-La derivación desde el modelo entidad-relación es prácticamente mecánica:
-
-| En el modelo entidad-relación | En el modelo relacional |
+| En el modelo de dominio | En el MER |
 |---|---|
-| Entidad | Tabla, con clave primaria |
-| Atributo | Columna, con su dominio |
-| Relación uno a muchos | Clave foránea en el extremo "muchos" |
-| Relación muchos a muchos | Tabla intermedia con ambas claves foráneas |
-| Relación con atributos propios | Tabla propia |
+| Clase conceptual | **Entidad**: algo sobre lo que queremos registrar información |
+| Atributo | **Atributo**: una propiedad de la entidad |
+| Asociación con multiplicidad | **Relación** con cardinalidad y participación |
 
-Lo que el modelo entidad-relación no expresa y el esquema sí debe resolver es el comportamiento ante la eliminación del extremo único. La integridad referencial no constituye un detalle de implementación: es una regla de negocio inscripta en el esquema. En el dominio de este proyecto la regla proviene directamente del relevamiento —no eliminar a quien abandona, porque es precisamente el caso que el sistema existe para detectar— y su traducción al esquema es la ausencia de eliminación física.
+No se trata de pasar el modelo en limpio con otra notación, sino de responder tres preguntas que el modelo de dominio no se hacía.
+
+**¿Cómo distinguimos una cosa de otra?** Es el **identificador** de cada entidad. Al cliente no le importa cómo se distinguen dos estudiantes, pero al sistema sí. Siempre que podamos, el identificador lo sacamos del dominio: el instituto ya identifica a cada estudiante por su **legajo**, así que no hace falta inventar otro. La comisión, en cambio, no tiene un identificador propio: "1°A" vuelve a existir el año que viene. Lo que la distingue es la combinación de nombre, ciclo lectivo y cuatrimestre.
+
+**¿Cuántas con cuántas?** Es la **cardinalidad** (uno a uno, uno a muchos, muchos a muchos), y viene directamente de la multiplicidad que acordamos con el cliente. No la deducimos: si el modelo de dominio dice `1 — 0..*`, el MER dice 1:N. Junto con la cardinalidad está la **participación**: si una clase puede existir sin comisión (no puede) o si una comisión puede existir sin clases (sí, al principio del cuatrimestre).
+
+**¿Qué no vamos a guardar?** Todo lo que se puede calcular a partir de otros datos. En el modelo de dominio ya dejamos afuera el **riesgo**, porque es lo que resulta de mirar asistencias y entregas contra el criterio. En el MER esa decisión se vuelve visible en un lugar concreto: la asociación "Criterio de riesgo *determina el riesgo de* Estudiante" no se convierte en una relación, porque no es un hecho que registramos sino una cuenta que hacemos cada vez.
+
+Recorramos el modelo de dominio del proyecto concepto por concepto:
+
+| Concepto del dominio | Entidad en el MER | Identificador | Por qué |
+|---|---|---|---|
+| Comisión | COMISIÓN | nombre + ciclo lectivo + cuatrimestre | Es lo que la distingue en el tiempo |
+| Estudiante | ESTUDIANTE | legajo | El instituto ya lo usa para identificarlo |
+| Clase | CLASE | comisión + fecha | Una comisión tiene a lo sumo una clase por día |
+| Asistencia | ASISTENCIA (entidad asociativa) | clase + estudiante | Es la regla del modelo de dominio: a lo sumo una asistencia por estudiante y clase |
+| Trabajo | TRABAJO | comisión + título | Cada comisión tiene sus propias consignas |
+| Entrega | ENTREGA (entidad asociativa) | trabajo + estudiante | A lo sumo una entrega por estudiante y trabajo |
+| Contacto | CONTACTO | — (se agrega uno en el DER) | Puede haber dos contactos el mismo día, por el mismo medio |
+| Criterio de riesgo | CRITERIO DE RIESGO | fecha desde la que rige | Lo vemos en "El dato que cambia con el tiempo" |
+
+Las dos **entidades asociativas** merecen una explicación. Asistencia vincula a un estudiante con una clase, así que podríamos pensarla como una relación muchos a muchos entre ambos. Pero tiene datos propios (la condición, cuándo se registró) y se corrige, y cuando una relación tiene atributos propios es en realidad una entidad. Fíjense que su identificador es justamente la regla que anotamos en el modelo de dominio: "a lo sumo una asistencia por estudiante y clase". La regla del negocio y el identificador son la misma cosa dicha de dos maneras.
+
+Con eso, el MER queda así (rectángulos para las entidades, rombos para las relaciones, doble borde para las entidades asociativas):
+
+```mermaid
+flowchart LR
+    COMISION[COMISIÓN]
+    ESTUDIANTE[ESTUDIANTE]
+    CLASE[CLASE]
+    TRABAJO[TRABAJO]
+    ASISTENCIA[[ASISTENCIA]]
+    ENTREGA[[ENTREGA]]
+    CONTACTO[CONTACTO]
+    CRITERIO[CRITERIO DE RIESGO]
+
+    COMISION ---|1| integra{está integrada por} ---|N| ESTUDIANTE
+    COMISION ---|1| calendarioClases{tiene en el calendario} ---|N| CLASE
+    COMISION ---|1| calendarioTrabajos{tiene en el calendario} ---|N| TRABAJO
+    CLASE ---|1| registraAsistencia{registra} ---|N| ASISTENCIA
+    ESTUDIANTE ---|1| acumulaAsistencia{acumula} ---|N| ASISTENCIA
+    TRABAJO ---|1| registraEntrega{registra} ---|N| ENTREGA
+    ESTUDIANTE ---|1| acumulaEntrega{acumula} ---|N| ENTREGA
+    ESTUDIANTE ---|1| recibe{recibe} ---|N| CONTACTO
+```
+
+### Del MER al DER: el modelo relacional
+
+El modelo relacional de Edgar Codd es anterior al MER y es el que implementan los motores. Su idea central es separar *qué* datos tenemos de *cómo* se guardan físicamente, y sostener todo sobre una sola construcción: la relación, que nosotros llamamos tabla. Por eso el paso del MER al DER es casi mecánico, y conviene entender el porqué de cada regla en lugar de memorizarla:
+
+| En el MER | En el DER | Por qué |
+|---|---|---|
+| Entidad | Tabla | Cada fila es una cosa del dominio |
+| Identificador | Clave primaria | Es lo que garantiza que no haya dos filas para la misma cosa |
+| Atributo | Columna, con su tipo | El tipo es la primera regla que el motor controla por nosotros |
+| Relación 1:N | Clave foránea en la tabla del lado N | Cada clase sabe a qué comisión pertenece; la comisión no necesita una lista de clases |
+| Participación obligatoria | Clave foránea `NOT NULL` | Una clase sin comisión no puede existir, y el motor no la deja existir |
+| Entidad asociativa | Tabla con dos claves foráneas, que juntas forman la clave primaria | La regla "a lo sumo una por par" queda escrita en el esquema |
+| Valores posibles de un atributo | `CHECK` | La asistencia es presente o ausente, y nada más |
+
+En este paso aparece la primera decisión que pertenece a la solución y no al problema: las **claves subrogadas**. Para la comisión, la clase, el trabajo y el contacto agregamos un `id` numérico, porque es más simple de referenciar que una clave compuesta de tres columnas. Eso no borra el identificador del MER: lo conservamos como restricción `UNIQUE`, para que el motor siga controlando que no haya dos "1°A" en el mismo cuatrimestre. El legajo, en cambio, queda como clave primaria del estudiante, porque es un identificador que el dominio ya nos da.
+
+Miremos sólo un fragmento, el de la asistencia, que alcanza para ver casi todas las reglas de la tabla anterior. `CLASE` y `ESTUDIANTE` son tablas comunes, y `ASISTENCIA` es la entidad asociativa que las vincula, con una clave primaria formada por sus dos claves foráneas. La columna `id_comision` apunta a una tabla que quedó fuera del dibujo.
+
+```mermaid
+erDiagram
+    CLASE ||--o{ ASISTENCIA : registra
+    ESTUDIANTE ||--o{ ASISTENCIA : acumula
+
+    ESTUDIANTE {
+        int legajo PK
+        string apellido
+        string nombre
+        date fecha_incorporacion
+        int id_comision FK
+    }
+    CLASE {
+        int id PK
+        int id_comision FK, UK
+        date fecha UK
+    }
+    ASISTENCIA {
+        int id_clase PK, FK
+        int legajo PK, FK
+        string condicion
+        timestamp registrada_el
+    }
+```
 
 ### Normalización
 
-Normalizar consiste en eliminar redundancia de modo que cada hecho quede registrado una única vez. Su fundamento es operativo antes que formal: el dato duplicado se actualiza en un lugar y no en el otro, y a partir de ese momento el sistema dispone de dos respuestas distintas para la misma pregunta.
+> Es necesario proteger a los futuros usuarios de grandes bancos de datos de la necesidad de conocer cómo se organizan los datos en la máquina (la representación interna). Un servicio de consulta que proporcione dicha información no constituye una solución satisfactoria. Las actividades de los usuarios en las terminales y la mayoría de los programas de aplicación no deberían verse afectadas cuando se modifique la representación interna de los datos, ni siquiera cuando cambien algunos aspectos de la representación externa. A menudo serán necesarios cambios en la representación de los datos debido a variaciones en el tráfico de consultas, actualizaciones e informes, así como al crecimiento natural de los tipos de información almacenada.
+>
+> [Edgar Codd en 1970 - Artículo completo](https://dl.acm.org/doi/epdf/10.1145/362384.362685)
 
-El recorrido mínimo, con el síntoma que cada forma corrige:
+Normalizar es asegurarnos de que **cada hecho quede registrado en un solo lugar**. El fundamento es práctico antes que teórico: si el nombre de un estudiante está guardado en dos tablas y lo corregimos en una, el sistema pasa a tener dos respuestas distintas para la misma pregunta.
 
-| Forma | Regla | Síntoma que corrige |
+Las primeras tres formas normales son tres maneras de preguntarnos lo mismo, *¿de qué depende este dato?*:
+
+| Forma | Qué asegura | Cómo se ve en nuestro DER |
 |---|---|---|
-| **1FN** | Cada celda contiene un único valor; no existen grupos repetidos | Una columna que almacena varias fechas de inasistencia separadas por comas |
-| **2FN** | Ningún atributo depende de una parte de la clave compuesta | El nombre del estudiante repetido en cada registro de asistencia |
-| **3FN** | Ningún atributo depende de otro atributo no clave | El nombre de la carrera almacenado junto a cada comisión |
+| **1FN** | Cada celda tiene un solo valor | Cada inasistencia es una fila de `asistencia`, no una lista de fechas dentro del estudiante |
+| **2FN** | Cada dato depende de la clave completa, no de una parte | `asistencia` guarda el legajo y nada más del estudiante: el apellido depende sólo del legajo, y vive en `estudiante` |
+| **3FN** | Cada dato depende de la clave y no de otro dato | El nombre de la comisión vive en `comision`; el estudiante sólo guarda `id_comision` |
 
-Para un sistema de esta escala, la tercera forma normal es suficiente. Kent redactó la guía breve que conviene leer completa, y su aporte central consiste en mostrar que la normalización no constituye un ritual sino una consecuencia de enunciar correctamente qué depende de qué.
+Kent lo resume en una guía breve que vale la pena leer completa: la normalización no es un ritual sino la consecuencia de decir con precisión qué depende de qué. Para un sistema de esta escala, la tercera forma normal es suficiente.
 
-La desnormalización es una decisión legítima de rendimiento y, como tal, requiere medición previa y registro. Desnormalizar de manera preventiva, antes de disponer de un problema medido, es optimización prematura y se paga con inconsistencias que aparecen tardíamente y cuya causa resulta difícil de localizar.
-
-### El dato que cambia con el tiempo
-
-Esta es la sección de mayor consecuencia práctica del tema, y la que sistemáticamente queda fuera de los modelos construidos sin asistencia.
-
-La mayor parte de los modelos de datos representan el **estado actual**: cuántas inasistencias acumula hoy cada estudiante, cuál es el umbral vigente hoy. La representación funciona correctamente hasta que se formula una pregunta sobre el pasado, momento en el cual no existe respuesta posible, porque el pasado fue sobrescrito.
-
-Fowler cataloga las variantes del problema bajo la denominación de patrones temporales, y la distinción que conviene retener es la que separa el **tiempo del hecho** del **tiempo del registro**. No son equivalentes: la asistencia de una fecha puede registrarse una semana después, y una corrección posterior modifica lo que el sistema sabe, no lo que ocurrió. Cuando ambas dimensiones importan simultáneamente, la información es bitemporal.
-
-Las tres soluciones habituales, ordenadas por costo de implementación:
-
-| Patrón | Mecanismo | Cuándo resulta suficiente |
-|---|---|---|
-| **Registro de auditoría** | Los cambios se registran en una estructura separada, sin alterar el modelo principal | Cuando el histórico se consulta ocasionalmente |
-| **Vigencia** | Cada registro incorpora el intervalo durante el cual es válido | Cuando un valor cambia y es necesario conocer cuál regía en una fecha dada |
-| **Objeto temporal** | Cada modificación genera una versión nueva; ningún valor se sobrescribe | Cuando el historial forma parte del producto |
-
-La consecuencia de diseño no es modelar toda la información como bitemporal, lo cual constituiría sobreingeniería y consumiría el presupuesto disponible. La consecuencia es formular la pregunta entidad por entidad y registrar la respuesta: si ese dato cambia en el tiempo, si alguien va a necesitar conocer su valor anterior, y quién lo va a preguntar. En el dominio de este proyecto tres entidades responden afirmativamente, y ninguna de las tres es evidente antes de formular la pregunta.
+Desnormalizar, es decir, duplicar un dato a propósito para consultar más rápido, también es una decisión de diseño legítima. Pero la tomamos cuando tenemos un problema de rendimiento medido, y la dejamos registrada, porque desde ese momento somos responsables de que las dos copias digan lo mismo.
 
 ### Aplicación al proyecto guía
 
-Modelo mínimo defendible del sistema de seguimiento:
+```sql
+CREATE TABLE estudiante (
+    legajo               INTEGER      PRIMARY KEY,         -- el identificador que ya da el dominio
+    apellido             VARCHAR(60)  NOT NULL,
+    nombre               VARCHAR(60)  NOT NULL,
+    fecha_incorporacion  DATE         NOT NULL,
+    id_comision          INTEGER      NOT NULL REFERENCES comision (id)
+);
 
-```text
-  COMISION      (id, nombre, ciclo_lectivo, cuatrimestre)
-  ESTUDIANTE    (legajo, apellido, nombre)
-  INSCRIPCION   (legajo → ESTUDIANTE, id_comision → COMISION, desde, hasta)   ◄── vigencia
-  CLASE         (id, id_comision → COMISION, fecha, confirmada)
-  ASISTENCIA    (id_clase → CLASE, legajo → ESTUDIANTE, estado)
-  TRABAJO       (id, id_comision → COMISION, titulo, fecha_limite)
-  ENTREGA       (id_trabajo → TRABAJO, legajo → ESTUDIANTE, estado, fecha)
-  UMBRAL        (id, nombre, valor, vigente_desde, vigente_hasta)             ◄── vigencia
-  INTERVENCION  (id, legajo → ESTUDIANTE, fecha, medio, resultado)
+CREATE TABLE clase (
+    id           INTEGER  PRIMARY KEY,
+    id_comision  INTEGER  NOT NULL REFERENCES comision (id),   -- participación obligatoria
+    fecha        DATE     NOT NULL,
+    UNIQUE (id_comision, fecha)
+);
+
+CREATE TABLE asistencia (
+    id_clase       INTEGER      NOT NULL REFERENCES clase (id),
+    legajo         INTEGER      NOT NULL REFERENCES estudiante (legajo),
+    condicion      VARCHAR(10)  NOT NULL CHECK (condicion IN ('presente', 'ausente')),
+    registrada_el  TIMESTAMP    NOT NULL,                   -- tiempo del registro
+    PRIMARY KEY (id_clase, legajo)                          -- a lo sumo una por estudiante y clase
+);
 ```
 
-El esquema incorpora cuatro decisiones que requieren fundamentación:
+Fíjense que no hay ninguna tabla ni columna `riesgo`. El riesgo se calcula cada vez que lo necesitamos, a partir de los hechos registrados:
 
-##### 1. La asistencia es una entidad y no una relación
+```sql
+-- Clases e inasistencias de cada estudiante, contadas desde su incorporación.
+SELECT e.legajo,
+       e.apellido,
+       COUNT(c.id)                                          AS clases_desde_su_incorporacion,
+       COUNT(CASE WHEN a.condicion = 'ausente' THEN 1 END)  AS inasistencias
+FROM estudiante e
+LEFT JOIN clase c       ON  c.id_comision = e.id_comision
+                        AND c.fecha >= e.fecha_incorporacion
+LEFT JOIN asistencia a  ON  a.id_clase = c.id
+                        AND a.legajo = e.legajo
+GROUP BY e.legajo, e.apellido;
+```
 
-Posee estado propio y admite corrección. Si se la modelara como la simple asociación entre estudiante y clase, corregir implicaría eliminar, y se perdería el registro de que hubo corrección, que es información relevante para el usuario.
-
-##### 2. La inscripción incorpora vigencia
-
-Porque el relevamiento estableció que hay incorporaciones posteriores al inicio del período y que nadie se elimina. Sin la fecha de incorporación, el porcentaje de inasistencias de quien ingresó avanzado el cuatrimestre resulta incorrecto, y lo hace en la dirección más perjudicial: sobreestima el riesgo de quien menos lo tiene.
-
-##### 3. El umbral es una entidad con vigencia
-
-Es lo que permite configurar el criterio sin intervenir el código, y lo que habilita explicar por qué un estudiante presentaba un nivel de riesgo en un momento y otro distinto más adelante sin que sus inasistencias hubieran cambiado.
-
-##### 4. El riesgo no forma parte del esquema
-
-Se calcula; no se almacena. Almacenarlo implicaría duplicar un hecho derivado, con el problema conocido de la desactualización silenciosa. La excepción legítima aparece si se requiere representar la evolución del riesgo a lo largo del tiempo, en cuyo caso corresponde almacenar una instantánea por período, y esa es una decisión que requiere registro.
-
-El recorte correspondiente al primer incremento es considerablemente menor que este esquema: estudiante, comisión, clase y asistencia, sin vigencias. El modelo completo constituye el horizonte y no la primera entrega. Lo que el diseño exige es saber cuál de los dos se está construyendo.
-
-### Anti-patrones frecuentes
-
-- **Modelar la interfaz en lugar del dominio**: una tabla por pantalla. Produce un esquema que sólo sirve para la primera versión de la interfaz.
-- **Almacenar el resultado del cálculo junto a la entidad**: se desactualiza en el primer registro posterior y produce dos respuestas para la misma pregunta.
-- **Tabla única con todos los atributos**: incumplimiento de la primera forma normal, más frecuente de lo que la teoría sugiere.
-- **Eliminación física de registros que el dominio exige conservar**: destruye precisamente el caso que el sistema existe para detectar.
-- **Deducir la cardinalidad en lugar de consultarla**: es una pregunta de relevamiento y su respuesta modifica el esquema completo.
-- **Modelar historicidad en todas las entidades**: el extremo opuesto también constituye un defecto, y consume un presupuesto que el proyecto no tiene.
+La consulta muestra para qué sirve cada decisión que tomamos en el camino: `fecha_incorporacion` hace que a quien entró en la cuarta clase se le cuenten las clases desde ese día y no desde el principio, la clave primaria de `asistencia` garantiza que nadie se cuente dos veces en la misma clase, y el `LEFT JOIN` hace que aparezca también quien todavía no tiene ninguna asistencia registrada, porque nadie desaparece de la lista.
 
 ### Síntesis
 
-El modelo de datos es la decisión de diseño más costosa de revertir, porque todo lo demás se construye encima. Su calidad no se mide por el grado de normalización alcanzado sino por dos propiedades: que represente el vocabulario y las reglas del dominio relevado, y que haya respondido explícitamente, entidad por entidad, la pregunta sobre el cambio en el tiempo. Un esquema que sólo representa el presente responde correctamente hasta la primera pregunta sobre el pasado.
-
-### Fuentes
-
-- Chen, P. (1976). "The Entity-Relationship Model — Toward a Unified View of Data", *ACM Transactions on Database Systems*, 1(1), pp. 9-36. https://doi.org/10.1145/320434.320440
-- Codd, E. F. (1970). "A Relational Model of Data for Large Shared Data Banks", *Communications of the ACM*, 13(6), pp. 377-387. https://doi.org/10.1145/362384.362685
-- Kent, W. (1983). "A Simple Guide to Five Normal Forms in Relational Database Theory", *Communications of the ACM*, 26(2), pp. 120-125. https://doi.org/10.1145/358024.358054
-- Larman, C. *Applying UML and Patterns* (3ª ed.), cap. 9, "Domain Models", §9.16 "Is a Domain Model Really a Data Model?".
-- Evans, E. (2003). *Domain-Driven Design*, Addison-Wesley, cap. 3, "Binding Model and Implementation", y cap. 5, "A Model Expressed in Software".
-- Fowler, M. — "Temporal Patterns". https://martinfowler.com/eaaDev/timeNarrative.html
-- Snodgrass, R. T. (1999). *Developing Time-Oriented Database Applications in SQL*, Morgan Kaufmann. Disponible completo por el autor: https://www2.cs.arizona.edu/~rts/tdbbook.pdf
+El modelo de datos es la decisión de diseño más cara de revertir, porque todo lo demás se construye encima. Por eso no lo inventamos: lo derivamos. El modelo de dominio pone los conceptos y el vocabulario, el MER agrega la identidad y la cardinalidad, el DER agrega la forma de guardarlo y el SQL se lo entrega al motor para que lo haga cumplir. Un buen modelo de datos no se reconoce por cuántas formas normales cumple, sino porque cada tabla, cada clave y cada restricción se puede rastrear hasta algo que acordamos con el cliente, y porque nos hicimos, entidad por entidad, la pregunta sobre el tiempo.
 
 --------
 
