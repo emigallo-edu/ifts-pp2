@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="DemoTPI/DemoTPI.csproj">
+    <Deploy Solution="Debug|*" />
+  </Project>
+  <Project Path="Test/Test.csproj" />
+</Solution>
