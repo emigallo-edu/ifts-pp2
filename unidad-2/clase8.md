@@ -6,6 +6,5 @@ Sprint 3:
 
 ### Tarea para la siguiente
 
-Clase (sprint 4):
 - No se agregan nuevos entregables, en este sprint nos vamos a poner al día con los sprints anteriores. Hay que terminar hasta el sprint 3 inclusive según lo marca el [calendario](../calendario.md)
 - Material de repaso: [Patrón Repository](https://martinfowler.com/eaaCatalog/repository.html)

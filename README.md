@@ -94,31 +94,6 @@ Los seis ejes del programa. Las unidades 2, 3 y 5 no se dictan en un momento pun
 
 **Unidad 6. Documentación, presentación y transferencia de la solución.** Documentación funcional y técnica. Registro de decisiones de diseño y desarrollo. Manuales e instructivos para usuarios. Documentación del repositorio. Presentación y demostración de la solución desarrollada: estructura de una demostración y comunicación con destinatarios no técnicos. Fundamentación de las decisiones adoptadas. Evaluación de resultados y oportunidades de mejora. Etapa de mantenimiento del software. Presentación profesional: portfolio de proyectos y entrevistas técnicas.
 
-## Cronograma de clases
-
-Cada clase se abre con la revisión del sprint entregado y se cierra con la planificación del siguiente. Salvo que se indique otra cosa, **el trabajo para la clase siguiente es planificar y desarrollar el sprint correspondiente**. Las fechas se ajustan al calendario definitivo del cuatrimestre y a los feriados que resulten aplicables.
-
-| # | Fecha | Entrega que se revisa | Desarrollo de la clase | Unidad |
-|---|---|---|---|---|
-| 1 | 28-08 | — | Cómo funciona la cursada: el ritmo semanal, qué se entrega y cómo se evalúa. Criterios técnicos y funcionales de evaluación. Sistemas de información transaccionales, de gestión y de apoyo a la decisión. Armado de equipos y presentación de dominios posibles | 1 |
-| 2 | 04-09 | Propuesta de problemática de cada equipo: contexto, usuario destinatario y decisión que se busca apoyar | Técnicas de relevamiento. Entrevista con el cliente, con la/el docente en rol. Alcance y restricciones. Scrum como marco de trabajo del equipo: roles, eventos y artefactos. Herramientas de trabajo: repositorio y sistema de tickets | 1 y 5 |
-| 3 | 11-09 | Requisitos relevados | Análisis de alternativas de solución: evaluación por factibilidad y selección fundamentada. Del relevamiento al backlog: épicas, historias de usuario, criterios de aceptación, requerimientos no funcionales, estimación y priorización. El backlog se cierra en un 70%, reservando un 30% para lo emergente. Cada equipo define su Definición de Terminado. Criterios para la elección del stack | 1, 2 y 5 |
-| 4 | 18-09 | Sprint 1 | Puesta a punto técnica: repositorio, ramas, tablero y ambientes. Arquitectura de la solución y modelo de datos inicial. Atributos de calidad: mantenibilidad, escalabilidad, usabilidad y seguridad, y las tensiones entre ellos | 2, 3 y 5 |
-| 5 | 25-09 | Sprint 2 | Diseño de interfaces e identidad de producto: usabilidad, accesibilidad, consistencia visual y guía de estilos mínima. Primera medición de la velocidad del equipo: comprometido contra terminado, y su uso en la estimación siguiente | 2, 3 y 5 |
-| 6 | 02-10 | Sprint 3 | Del dato a la decisión: niveles de la organización, necesidades de información y definición de los indicadores del proyecto. Consultas de agregación y reportes. Calidad de código y trabajo colaborativo en el repositorio: convenciones, revisión de cambios entre integrantes y flujo de ramas | 2, 3, 4 y 5 |
-| 7 | 09-10 | Sprint 4 | Visualización y tableros: criterios de diseño, jerarquía de la información, alertas y umbrales. Deuda técnica: qué se refactoriza y qué se difiere. Se abre el 30% del backlog reservado | 2, 3, 4 y 5 |
-| 8 | 16-10 | Sprint 5 | Pruebas unitarias, de integración y de aceptación. Datos de prueba. Registro y priorización de defectos. Preparación de la demostración: los criterios de aceptación como guion de la demo | 2, 3, 5 y 6 |
-| 9 | 23-10 | Producto en ejecución, cumpliendo el alcance definido por el equipo | **ENCUENTRO PRESENCIAL. PRIMERA EVALUACIÓN:** demostración del producto ante el cliente y ante los demás equipos. Devolución cruzada | 4 y 6 |
-| 10 | 30-10 | Sprint 7 | Integración continua: automatización de la ejecución de pruebas, verificación de estilo y criterios sobre qué se ejecuta ante cada cambio. Retrospectiva de medio término de la cursada | 2, 3 y 5 |
-| 11 | 06-11 | Sprint 8 | Despliegue y ambientes: desarrollo, prueba y producción. Versionado y publicación de versiones. Vuelta atrás. Configuración y credenciales fuera del código. Al cierre de la clase, el cliente reordena el backlog e introduce un requerimiento nuevo | 2, 3 y 5 |
-| 12 | 13-11 | Sprint 9 | Seguridad y protección de datos: control de acceso, roles y permisos, protección de datos personales (Ley N° 25.326) y vulnerabilidades frecuentes. Gestión de cambios: impacto del requerimiento nuevo sobre el alcance, el backlog y las estimaciones | 2, 3 y 5 |
-| 13 | 20-11 | Sprint 10 | Operación y mantenimiento: registro de eventos, monitoreo, métricas de uso y tipos de mantenimiento. Cierre de alcance y estabilización: criterios para decidir qué queda fuera de la entrega | 2, 3, 5 y 6 |
-| 14 | 27-11 | Sprint 11 | Documentación y transferencia: documentación técnica, manual de usuario, documentación del repositorio y registro de decisiones de diseño. Estructura de una demostración y ensayo de la presentación final con devolución | 2, 3, 5 y 6 |
-| 15 | 04-12 | Entrega final: producto terminado, documentación y repositorio | **ENCUENTRO PRESENCIAL. SEGUNDA EVALUACIÓN:** demostración del producto terminado y defensa individual de cada integrante del equipo | 6 |
-| 16 | 11-12 | — | Cierre de la materia y retrospectiva final. Puestos y roles en la industria del software, simulación de entrevista técnica y portfolio de proyectos. Devoluciones individuales e instancia de recuperación | 6 |
-
-> Este es el cronograma del programa, con doce sprints. [trabajo-integrador/consigna.md](trabajo-integrador/consigna.md) trabaja sobre un calendario reducido de 13 clases y 9 sprints; ante cualquier diferencia, manda el que esté publicado en el aula virtual.
-
 ## Cómo se organiza el material
 
 Este repositorio es **el material de la cátedra**: la teoría de cada unidad y la consigna del proyecto. El trabajo de los equipos no vive acá — va en el repositorio de cada equipo, en Trello y en Classroom.

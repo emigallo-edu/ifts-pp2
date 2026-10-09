@@ -3,7 +3,7 @@
 Sprint 1:
 - Revisión de las historias creadas (H1 y H3)
 
-### Tarea para la siguiente clase (sprint 2)
+### Tarea para la siguiente clase
 
 - Realizar lo estipulado en sprint 2 en el [calendario](../calendario.md)
 - Leer el fragmento del libro [Domain Driven Design de Eric Evans](/unidad-2/DDD-LenguajeUbicuo.pdf)
