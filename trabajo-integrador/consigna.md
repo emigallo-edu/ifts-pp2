@@ -103,3 +103,62 @@ El hito real es el **sprint 2**: a partir de ahí hay algo que mostrarle al clie
 | [Una historia de referencia](historia-de-referencia.md), resuelta entre todos en la clase 1 | La división de las que no entran en un sprint |
 | El formato de los criterios de aceptación | La estimación y el orden del resto del backlog |
 | El cambio de requerimiento de la clase 9 | Los requerimientos no funcionales y los umbrales |
+
+---
+
+## ¿Cómo medimos la participación de cada integrante?
+
+> El trabajo en equipo no se trata de cuánto produce cada uno, sino de cuánto se compromete cada uno con el trabajo del equipo.
+
+A lo largo de la cursada vamos a medir, con frecuencia, el esfuerzo que dedica cada integrante al proyecto. No medimos lo producido: si alguien resuelve en una hora lo que a otro le lleva tres, para nosotros vale lo mismo, porque están acá para aprender. Lo que queremos ver es que cada uno esté, semana a semana, empujando el trabajo. No es una nota: es una señal para nosotros y para ustedes, y sirve para detectar a tiempo si alguien está quedando afuera. Lo importante es que **lo que no está registrado no lo podemos ver**, así que el criterio premia trabajar a la vista.
+
+### Las tres señales
+
+**1. Constancia (40%).** Contamos las semanas en las que cada integrante trabajó en el proyecto. Una semana cuenta si hubo al menos un commit o una actividad en Trello, sin importar si fue un día o todos los días: trabajar un poco cada día o mucho en un solo día vale lo mismo.
+
+**2. Commits (35%).** Cada commit, en cualquier rama, se dimensiona según su tamaño y suma un tiempo estimado:
+
+| Tamaño | Líneas agregadas y borradas | Tiempo que suma |
+|---|---|---|
+| Chico | Hasta 30 | 0,5 h |
+| Mediano | De 31 a 200 | 1,5 h |
+| Grande | Más de 200 | 3 h |
+
+Todo commit es, como mínimo, chico, aunque sólo toque un archivo de configuración o suba un documento. El tope de 3 h hace que pegar miles de líneas no valga más que un commit grande: lo que medimos es tiempo dedicado, no volumen. Para contar líneas no tenemos en cuenta `bin/`, `obj/`, `.vs/`, `TestResults/` ni los archivos que genera la plantilla del proyecto (`Platforms/`, `Resources/`, `.csproj`, `.slnx`, `App.xaml`, `MainPage`). Los merges no cuentan.
+
+**3. Trello (25%).** Cada actividad en el tablero suma 1 punto: crear una tarjeta, comentar, moverla de lista, modificarla, adjuntar un archivo, asignar a alguien, completar un ítem de checklist.
+
+Si un integrante usa más de un usuario o email, en GitHub o en Trello, los unificamos.
+
+### ¿Y si trabajamos en pareja?
+
+Cuando dos personas programan juntas y una sola hace el commit, la herramienta le atribuye todo el trabajo a quien commiteó. Para que eso no pase, el commit tiene que nombrar a todos los que participaron, agregando al final del mensaje una línea por cada compañero:
+
+```
+Co-authored-by: Nombre Apellido <email@ejemplo.com>
+```
+
+Cada coautor suma ese commit y esa semana igual que el autor. En Trello pasa lo mismo: **asignen a la tarjeta a todos los que trabajaron en ella**.
+
+### ¿Cómo se convierte en un porcentaje?
+
+Para cada señal calculamos qué parte del total del equipo aportó cada integrante, y las combinamos con los pesos de arriba: 40% constancia, 35% commits, 25% Trello.
+
+Después suavizamos el resultado: a la participación de cada integrante le aplicamos la **raíz cuadrada** y volvemos a normalizar para que todo sume 100%. El orden no cambia y las distancias se acortan, porque siempre hay trabajo en conjunto que no queda registrado. Pero quien no registró ninguna actividad sigue en cero: suavizar no es regalar.
+
+Por ejemplo, un reparto de 32 / 28 / 18 / 16 / 7 queda, después de suavizar, en 26 / 24 / 20 / 18 / 12.
+
+### ¿Qué ven ustedes?
+
+No publicamos el número exacto, sino una banda que compara a cada integrante contra el reparto parejo del equipo (100% dividido la cantidad de integrantes):
+
+| Banda | Participación suavizada |
+|---|---|
+| Por encima de lo esperado | Más de 1,25 veces el reparto parejo |
+| En lo esperado | Entre 0,75 y 1,25 veces |
+| Por debajo de lo esperado | Menos de 0,75 veces |
+| Sin participación registrada | Cero |
+
+Además, avisamos cuando un integrante lleva **dos semanas o más sin actividad registrada**, porque es la señal más temprana de que alguien se está quedando afuera.
+
+Una banda baja en una medición no es una sanción: es una conversación que tenemos que tener a tiempo. Lo que sí pesa es una banda baja sostenida durante varios sprints sin que el equipo lo haya planteado en la retrospectiva.
