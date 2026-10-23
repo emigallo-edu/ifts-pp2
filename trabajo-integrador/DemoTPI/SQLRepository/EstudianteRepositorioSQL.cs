@@ -1,27 +1,21 @@
-﻿using DemoTPI.Entidades;
-using DemoTPI.Services;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Dominio.Entidades;
+using Dominio.Services;
 
-namespace DemoTPI.Repositorios
+namespace SQLRepository
 {
     public class EstudianteRepositorioSQL : EstudianteRepositorio
     {
 
         public void Insertar(Estudiante estudiante)
         {
-            // Lógica para insertar un estudiante en la base de datos
         }
 
         public void Actualizar(Estudiante estudiante)
         {
-            // Lógica para actualizar un estudiante en la base de datos
         }
 
         public void Eliminar(Estudiante estudiante)
         {
-            // Lógica para eliminar un estudiante de la base de datos
         }
 
         public List<Estudiante> ObtenerTodos()

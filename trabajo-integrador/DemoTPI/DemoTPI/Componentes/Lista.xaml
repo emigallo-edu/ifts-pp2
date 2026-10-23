@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Lista reutilizable: título + CollectionView + mensaje cuando no hay elementos.
+     Quien la usa decide qué mostrar (ItemsSource) y cómo mostrarlo (ItemTemplate). -->
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:componentes="clr-namespace:DemoTPI.Componentes"
+             x:Class="DemoTPI.Componentes.Lista"
+             x:Name="raiz">
+    <VerticalStackLayout Spacing="8" x:DataType="componentes:Lista" BindingContext="{x:Reference raiz}">
+        <Label Text="{Binding Titulo}" FontSize="18" FontAttributes="Bold" />
+        <CollectionView ItemsSource="{Binding ItemsSource}"
+                        ItemTemplate="{Binding ItemTemplate}"
+                        SelectedItem="{Binding SelectedItem}"
+                        SelectionMode="Single">
+            <CollectionView.EmptyView>
+                <Label Text="{Binding TextoVacio}" TextColor="{StaticResource Gray500}" />
+            </CollectionView.EmptyView>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentView>

@@ -3,7 +3,7 @@
 - 16/10 - primera evaluación
 - 13/11 - segunda evaluación + defensa individual
 - 20/11 - recuperatorio
-- 24/11 - última clase y cierra de notas
+- 27/11 - última clase y cierra de notas
 
 ## Entregas
 

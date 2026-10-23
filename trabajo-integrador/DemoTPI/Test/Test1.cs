@@ -1,5 +1,5 @@
-using DemoTPI.Entidades;
-using DemoTPI.Services;
+using Dominio.Entidades;
+using Dominio.Services;
 
 namespace Test
 {

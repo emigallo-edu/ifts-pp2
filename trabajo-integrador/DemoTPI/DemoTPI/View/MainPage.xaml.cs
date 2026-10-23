@@ -7,14 +7,15 @@ namespace DemoTPI
 
         private readonly MainViewModel _vm;
 
-        public MainPage()
+        // El ViewModel lo crea el contenedor de dependencias (registrado en MauiProgram)
+        public MainPage(MainViewModel vm)
         {
             InitializeComponent();
-            this._vm = new MainViewModel();
+            this._vm = vm;
             this.BindingContext = this._vm;
         }
 
-        private void ContentPage_Loaded(object sender, EventArgs e)
+        private void ContentPage_Loaded(object? sender, EventArgs e)
         {
             this._vm.MostrarEstudiantes();
         }

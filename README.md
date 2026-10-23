@@ -102,8 +102,9 @@ Este repositorio es **el material de la cátedra**: la teoría de cada unidad y 
 |---|---|
 | [unidad-1/](unidad-1/) | Identificación y análisis de la problemática: sistemas y sus límites, tipos de sistema de información, enunciado del problema, actores, relevamiento, requerimientos, historias y criterios de aceptación, alcance |
 | [unidad-2/](unidad-2/) | Análisis y diseño de la solución |
-| [unidad-3/](unidad-3/) | Desarrollo e implementación |
+| [unidad-3/](unidad-3/) | Desarrollo e implementación: arquitectura, atributos de calidad, prototipado, tecnologías, pruebas, integración con Git y revisión de código, refactorización y deuda técnica, ambientes e integración continua |
 | [unidad-4/](unidad-4/) | Sistemas de información para la gestión y la toma de decisiones |
+| [unidad-6/](unidad-6/) | Documentación, presentación y transferencia de la solución: README, modelo de arquitectura actual, registro de decisiones, demostración y defensa |
 | [trabajo-integrador/](trabajo-integrador/) | El dominio del proyecto, el encargo del cliente, el cronograma clase por clase y [la historia de referencia](trabajo-integrador/historia-de-referencia.md) resuelta en la clase 1 |
 
 **Una carpeta por unidad, y dentro tres clases de archivo.** El apunte principal es siempre `contenido.md` y los ejercicios están siempre en `ejercitaciones.md`. Cuando un tema puntual necesita más profundidad que la que entra en el apunte, se publica como archivo aparte con el nombre del tema —por ejemplo [unidad-1/requisitos.md](unidad-1/requisitos.md), sobre la diferencia entre caso de uso e historia de usuario—.

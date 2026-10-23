@@ -2,5 +2,7 @@
   <Project Path="DemoTPI/DemoTPI.csproj">
     <Deploy Solution="Debug|*" />
   </Project>
+  <Project Path="Dominio/Dominio.csproj" />
+  <Project Path="SQLRepository/SQLRepository.csproj" />
   <Project Path="Test/Test.csproj" />
 </Solution>

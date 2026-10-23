@@ -1,12 +1,8 @@
-﻿using DemoTPI.Entidades;
-using DemoTPI.Repositorios;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Dominio.Entidades;
 
-namespace DemoTPI.Services
+namespace Dominio.Services
 {
-    internal class ObtenerEstudiantesService
+    public class ObtenerEstudiantesService
     {
         private readonly EstudianteRepositorio _repositorio;
 

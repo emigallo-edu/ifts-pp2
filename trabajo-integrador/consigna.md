@@ -106,59 +106,38 @@ El hito real es el **sprint 2**: a partir de ahí hay algo que mostrarle al clie
 
 ---
 
+## ¿Cómo evaluamos la calidad del producto?
+
+> La calidad no se trata de que el código sea elegante, sino de que el sistema se pueda cambiar sin miedo y se pueda usar sin que nadie lo explique.
+
+En esta segunda mitad, además de qué historias funcionan, vamos a mirar cómo están construidas. No vamos a evaluar todo lo que se puede decir de un diseño: elegimos siete puntos concretos, que se pueden verificar en pocos minutos y que ustedes mismos pueden revisar antes de cada entrega. Lo importante es que **cada ítem se comprueba en el código o en la app**, no se discute de memoria: si no se puede mostrar, no cumple.
+
+### En el código
+
+**1. Métodos chicos.** Ningún método supera las 20 líneas ni una complejidad ciclomática de 10. La complejidad cuenta los caminos posibles dentro de un método: cada `if`, cada ciclo y cada `&&` suma uno. Se ve en Visual Studio con *Analizar → Calcular métricas de código*, en las columnas de líneas de código ejecutable y complejidad ciclomática. Un método largo casi siempre está haciendo más de una cosa.
+
+**2. Cada cosa en su capa.** Las pantallas (`.xaml.cs`) no tienen lógica: sólo `InitializeComponent`, el `BindingContext` y, como mucho, avisarle al ViewModel que la página apareció. Las reglas del negocio, como el cálculo del riesgo o el orden del panel, viven en el dominio y no en el ViewModel. La pregunta para hacerse es: ¿podríamos calcular el riesgo sin abrir ninguna pantalla?
+
+**3. Las dependencias apuntan al dominio.** Las entidades y los servicios no tienen `using` de MAUI ni de la base de datos, y ningún ViewModel hace `new` de un repositorio: lo recibe por el constructor. Se verifica buscando esos textos en el código. Si cambiamos de base de datos, el dominio no se tendría que enterar.
+
+**4. Cada dato escrito una sola vez.** Los estados ("Presente", "Ausente"), los niveles de riesgo y los umbrales se definen en un solo lugar y se usan desde ahí. Se verifica buscando el texto: si aparece escrito en tres archivos, cuando cambie vamos a tener que acordarnos de los tres.
+
+**5. Las reglas están probadas.** Hay tests del cálculo de riesgo, incluidos los casos borde: un estudiante sin clases registradas, sin trabajos, o que se incorporó tarde. Esos casos son justamente donde el cálculo se rompe, y un test los encuentra antes que la clienta.
+
+### En la aplicación
+
+**6. El recorrido completo funciona desde la rama integrada.** Cargar la nómina, registrar asistencia y entregas, y ver el panel ordenado, con datos reales y de punta a punta. Evaluamos lo que está integrado en la rama principal del equipo: lo que vive sólo en una rama de feature, para nosotros todavía no existe.
+
+**7. Las entradas están validadas.** Los campos vacíos, los duplicados y los formatos inválidos se rechazan con un mensaje que le dice a quien usa el sistema qué hacer, no sólo que algo salió mal. Se verifica probando cada formulario con datos incorrectos a propósito.
+
+### ¿Cómo se califica?
+
+Cada ítem queda en uno de tres estados: **cumple**, **a mejorar** o **no cumple**. No hay puntaje por ítem ni promedio: lo que vamos a mirar en la entrega final es que los "no cumple" de la revisión anterior se hayan resuelto. Antes de cada entrega, recorran ustedes los siete puntos: es la misma revisión que vamos a hacer nosotros.
+
+---
+
 ## ¿Cómo medimos la participación de cada integrante?
 
 > El trabajo en equipo no se trata de cuánto produce cada uno, sino de cuánto se compromete cada uno con el trabajo del equipo.
 
-A lo largo de la cursada vamos a medir, con frecuencia, el esfuerzo que dedica cada integrante al proyecto. No medimos lo producido: si alguien resuelve en una hora lo que a otro le lleva tres, para nosotros vale lo mismo, porque están acá para aprender. Lo que queremos ver es que cada uno esté, semana a semana, empujando el trabajo. No es una nota: es una señal para nosotros y para ustedes, y sirve para detectar a tiempo si alguien está quedando afuera. Lo importante es que **lo que no está registrado no lo podemos ver**, así que el criterio premia trabajar a la vista.
-
-### Las tres señales
-
-**1. Constancia (40%).** Contamos las semanas en las que cada integrante trabajó en el proyecto. Una semana cuenta si hubo al menos un commit o una actividad en Trello, sin importar si fue un día o todos los días: trabajar un poco cada día o mucho en un solo día vale lo mismo.
-
-**2. Commits (35%).** Cada commit, en cualquier rama, se dimensiona según su tamaño y suma un tiempo estimado:
-
-| Tamaño | Líneas agregadas y borradas | Tiempo que suma |
-|---|---|---|
-| Chico | Hasta 30 | 0,5 h |
-| Mediano | De 31 a 200 | 1,5 h |
-| Grande | Más de 200 | 3 h |
-
-Todo commit es, como mínimo, chico, aunque sólo toque un archivo de configuración o suba un documento. El tope de 3 h hace que pegar miles de líneas no valga más que un commit grande: lo que medimos es tiempo dedicado, no volumen. Para contar líneas no tenemos en cuenta `bin/`, `obj/`, `.vs/`, `TestResults/` ni los archivos que genera la plantilla del proyecto (`Platforms/`, `Resources/`, `.csproj`, `.slnx`, `App.xaml`, `MainPage`). Los merges no cuentan.
-
-**3. Trello (25%).** Cada actividad en el tablero suma 1 punto: crear una tarjeta, comentar, moverla de lista, modificarla, adjuntar un archivo, asignar a alguien, completar un ítem de checklist.
-
-Si un integrante usa más de un usuario o email, en GitHub o en Trello, los unificamos.
-
-### ¿Y si trabajamos en pareja?
-
-Cuando dos personas programan juntas y una sola hace el commit, la herramienta le atribuye todo el trabajo a quien commiteó. Para que eso no pase, el commit tiene que nombrar a todos los que participaron, agregando al final del mensaje una línea por cada compañero:
-
-```
-Co-authored-by: Nombre Apellido <email@ejemplo.com>
-```
-
-Cada coautor suma ese commit y esa semana igual que el autor. En Trello pasa lo mismo: **asignen a la tarjeta a todos los que trabajaron en ella**.
-
-### ¿Cómo se convierte en un porcentaje?
-
-Para cada señal calculamos qué parte del total del equipo aportó cada integrante, y las combinamos con los pesos de arriba: 40% constancia, 35% commits, 25% Trello.
-
-Después suavizamos el resultado: a la participación de cada integrante le aplicamos la **raíz cuadrada** y volvemos a normalizar para que todo sume 100%. El orden no cambia y las distancias se acortan, porque siempre hay trabajo en conjunto que no queda registrado. Pero quien no registró ninguna actividad sigue en cero: suavizar no es regalar.
-
-Por ejemplo, un reparto de 32 / 28 / 18 / 16 / 7 queda, después de suavizar, en 26 / 24 / 20 / 18 / 12.
-
-### ¿Qué ven ustedes?
-
-No publicamos el número exacto, sino una banda que compara a cada integrante contra el reparto parejo del equipo (100% dividido la cantidad de integrantes):
-
-| Banda | Participación suavizada |
-|---|---|
-| Por encima de lo esperado | Más de 1,25 veces el reparto parejo |
-| En lo esperado | Entre 0,75 y 1,25 veces |
-| Por debajo de lo esperado | Menos de 0,75 veces |
-| Sin participación registrada | Cero |
-
-Además, avisamos cuando un integrante lleva **dos semanas o más sin actividad registrada**, porque es la señal más temprana de que alguien se está quedando afuera.
-
-Una banda baja en una medición no es una sanción: es una conversación que tenemos que tener a tiempo. Lo que sí pesa es una banda baja sostenida durante varios sprints sin que el equipo lo haya planteado en la retrospectiva.
+A lo largo de la cursada vamos a mirar, con frecuencia, cuánto empuja cada integrante el proyecto: la constancia semana a semana, los commits en el repositorio y la actividad en Trello. No medimos volumen ni producción, sino que cada uno esté trabajando y que se vea. El resultado no es una nota sino una de tres categorías (*según lo esperado*, *por debajo de lo esperado* o *poco o nada de participación*), y sirve para detectar a tiempo si alguien está quedando afuera. Lo importante es que **lo que no está registrado no lo podemos ver**: si trabajan en pareja, agreguen al commit una línea `Co-authored-by: Nombre Apellido <email>` por cada compañero, y en Trello asignen la tarjeta a todos los que trabajaron en ella.
