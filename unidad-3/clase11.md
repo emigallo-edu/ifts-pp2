@@ -2,6 +2,9 @@
 
 - Revisón de la entrega acordada para hoy
 - Contenido de hoy
+- [Material Arquitectura de sistemas](https://github.com/emigallo-edu/entrega-continua/blob/main/Presentaciones/content.md#la-arquitectura-como-habilitador-de-la-entrega-continua)
+- [Material Entity Framework Core](https://github.com/emigallo-edu/net-web-api/blob/master/Presentations/content.md#entity-framework-core)
+- [Proyecto donde se aplica Entity Framwork Core](https://github.com/emigallo-edu/liga-libre-api)
 
 ### Tarea para la siguiente
 
