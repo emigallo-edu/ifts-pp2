@@ -9,5 +9,9 @@
 ### Tarea para la siguiente
 
 - Realizar lo estipulado en sprint 8 en el [calendario](../calendario.md)
+- Cargar mucha información en la base de datos. La idea es que armen un reporte (o varios) para la 2da instancia de evaluación.
+
+### Material complementario
+
 - [The Practical Test Pyramid – Ham Vocke](https://martinfowler.com/articles/practical-test-pyramid.html)
 - [Technical Debt – Martin Fowler](https://martinfowler.com/bliki/TechnicalDebt.html)
